@@ -1,0 +1,27 @@
+.page {
+  height: 780px;
+  position: relative;
+  color: #EEE;
+  top: -20px;
+  padding: 40px !important;
+}
+
+.pink {
+  background-color: #9C646B;
+}
+
+.beige {
+  background-color: #D1C181;
+}
+
+.taupe {
+  background-color: #C79C81;
+}
+
+.light-green {
+  background-color: #9CB06C;
+}
+
+.green {
+  background-color: #4B7865;
+}
