@@ -1,11 +1,3 @@
-.page {
-  height: 780px;
-  position: relative;
-  color: #EEE;
-  top: -20px;
-  padding: 40px !important;
-}
-
 .pink {
   background-color: #9C646B;
 }
@@ -42,13 +34,4 @@
 #intro-btn:hover {
   background-color: #a66c74;
   cursor: pointer;
-}
-
-.def {
-  text-align: left;
-  text-decoration: underline;
-}
-
-.def-text {
-  text-align: justify;
 }

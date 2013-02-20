@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
 /**
  * Beige theme for reveal.js.
  *
@@ -34,12 +35,6 @@ body {
   color: #fff;
 }
 
-::selection {
-  color: white;
-  background: rgba(79, 64, 28, 0.99);
-  text-shadow: none;
-}
-
 /*********************************************
  * HEADERS
  *********************************************/
@@ -50,7 +45,7 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #EEE;
+  color: #FFF;
   font-family: "League Gothic", Impact, sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
