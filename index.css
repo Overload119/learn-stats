@@ -25,3 +25,30 @@
 .green {
   background-color: #4B7865;
 }
+
+.small-text {
+  font-size: 0.6em !important;
+}
+
+#intro-btn {
+  background-color: #9C646B;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1.5em;
+  padding: 12px;
+}
+
+#intro-btn:hover {
+  background-color: #a66c74;
+  cursor: pointer;
+}
+
+.def {
+  text-align: left;
+  text-decoration: underline;
+}
+
+.def-text {
+  text-align: justify;
+}
