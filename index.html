@@ -2,20 +2,21 @@
 <html>
   <head>
     <title>Central Limit Theorem</title>
-    <link rel="stylesheet" type="text/css" href="reveal.min.css" />
-    <link rel="stylesheet" href="default.css" id="theme">
+    <link rel="stylesheet" type="text/css" href="css/reveal.min.css" />
+    <link rel="stylesheet" href="css/default.css" id="theme">
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
-    <script type="text/javascript" src="index.js"></script>
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.1.0/rickshaw.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
   </head>
 
   <body>
     <div class="reveal">
       <div class="slides">
         <section>
-          <div class="page light-green">
+          <div class="reset page light-green">
             <h2>Central Limit Theorem</h2>
             <hr/>
             <p>Large random samples will have normally distributed means.</p>
@@ -23,13 +24,35 @@
           </div>
         </section>
         <section>
-          <div class="page taupe">
+          <div class="reset page taupe">
             Single Horizontal Slide
           </div>
         </section>
         <section>
-          <div class="page beige">
-            Single Horizontal Slide
+          <div class="reset page beige">
+            <h4>What do those ratings mean?</h4>
+            <div class="reset graph-wrapper">
+              <div id="user-ratings-graph"></div>
+              <div class="graph-pictures-xaxis">
+                <div>
+                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
+                </div>
+                <div>
+                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
+                </div>
+                <div>
+                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
+                </div>
+                <div>
+                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
+                </div>
+                <div>
+                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
+                </div>
+              </div>
+            </div>
+            <p>These ratings follow a random distribution - every person who rates the cats will have different opinions. Even so, the probability of getting a 10 for each cat is not equal; some cats are more likely to get a higher rating than others. The ratings will not conform to a normal distribution</p>
+            
           </div>
         </section>
       </div>

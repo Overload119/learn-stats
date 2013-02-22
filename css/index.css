@@ -25,3 +25,29 @@
 .green {
   background-color: #4B7865;
 }
+
+.graph-wrapper{
+  width: 600px;
+  margin: 0 auto !important; /*EWWWWWWWWW*/
+  text-align: center;
+}
+.graph-pictures-xaxis {
+  margin-top: -10px;
+  width: 595px;
+  height: 40px;
+}
+.graph-pictures-xaxis img {
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+}
+.graph-pictures-xaxis div {
+  width: 113px;
+  height: 37px;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  text-align: center;
+  display: inline-block;
+  background: black;
+}
