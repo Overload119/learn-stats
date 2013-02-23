@@ -35,3 +35,9 @@
   background-color: #a66c74;
   cursor: pointer;
 }
+
+.graph-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  text-align:center;
+}
