@@ -4,10 +4,12 @@
     <title>Central Limit Theorem</title>
     <link rel="stylesheet" type="text/css" href="reveal.css" />
     <link rel="stylesheet" href="default.css" id="theme">
+    <!--<link rel="stylesheet" href="detail.css" id="theme">-->
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.1.0/rickshaw.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
     <script type="text/javascript" src="Rickshaw.Graph.HoverDetail.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css" />
@@ -28,7 +30,7 @@
               </p>
             </div>
             <br />
-            <input value="I don't get it" type="button" id="intro-btn" />
+            <input value="I don't get it" type="button" id="intro-btn" class="btn"  />
           </div>
         </section>
         <section>
@@ -38,7 +40,7 @@
         </section>
         <section>
           <div class="page beige">
-            <h4>What do those ratings mean?</h4>
+            <h5>What do those ratings mean?</h5>
             <div class="graph-wrapper">
               <div id="user-ratings-graph"></div>
               <div class="graph-pictures-xaxis">
@@ -55,8 +57,19 @@
                 </div>
               </div>
             </div>
-            <p>These ratings follow a random distribution - every person who rates the cats will have different opinions. Even so, the probability of getting a 10 for each cat is not equal; some cats are more likely to get a higher rating than others. The ratings will not conform to a normal distribution</p>
-            
+            <br>
+            <div class="thumb scroll">
+              <div class="thumb-wrapper">
+                <div class="thumb-front">
+                  <p class='small-text dark'>These ratings follow a random distribution - every person who rates the cats will have different opinions. Even so, the probability of getting a 10 for each cat is not equal; some cats are more likely to get a higher rating than others. The ratings will not conform to a normal distribution</p>
+                </div>
+                <div class="thumb-detail">
+                  <p class='small-text-dark'>Some other shit goes here</p>
+                </div>
+              </div>
+            </div>    
+            <br>
+            <input value="So what?" type="button" id="user-graph-next-btn" class="btn" />
           </div>
         </section>
       </div>

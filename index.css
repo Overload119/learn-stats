@@ -22,13 +22,21 @@
   font-size: 0.6em !important;
 }
 
-#intro-btn {
-  background-color: #9C646B;
+.dark {
+  color: #222;
+}
+
+.btn {
+  box-shadow: 1px 1px 5px black;
   border: 0;
   border-radius: 4px;
   color: #fff;
-  font-size: 1.5em;
   padding: 12px;
+}
+
+#intro-btn {
+  background-color: #9C646B;
+  font-size: 1.5em;
 }
 
 #intro-btn:hover {
@@ -37,7 +45,7 @@
 }
 
 .graph-wrapper {
-  width: 70%;
+  width: 550px;
   margin: 0 auto;
   text-align:center;
 }
@@ -46,16 +54,95 @@
   width: 100%;
 }
 .graph-pictures-xaxis div {
-  width: 19.8%;
+  width: 104.5px;
+  margin-right: 5.5px;
+  margin-top: -7px;
   float:left;
-  margin: 0;
-  padding: 0;
+  background-color: rgba(0,0,0,0.7);
+  padding-top:6px;
   display: inline-block;
 }
 .graph-pictures-xaxis img {
-  border: 3px solid #333; 
+  outline: 2px solid #000; 
 }
 
-.detail {
-  background:black;
+.detail { /*styles the on-hover stuff*/
+  width: 104.5px;
+  text-align:center;
+  padding: 0;
+  font-size: 0.5em;
+  position: fixed;
+  top: 325px;
+  margin-left: 205px
+}
+
+/*card flip attempt:*/
+.thumb {
+  display:block;
+  width:880px;
+  height:100px;
+  position:relative;
+  margin-top: 10px;
+  margin-bottom:10px;
+  float:left;
+}
+ 
+.thumb-wrapper {
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+.thumb .thumb-front {
+  width:100%;
+  height:100%;
+  position:absolute;
+  display:block;          
+}
+
+.thumb .thumb-detail {
+  display:block;
+  width:100%;
+  height:100%;
+  position:absolute;          
+  background-color: #D1C181;
+  outline 3px solid black;
+}
+
+.thumb.scroll {
+  overflow: hidden;
+}   
+
+.thumb.scroll .thumb-detail {
+  bottom: -280px;
+}
+
+.thumb.flip {
+ perspective:800px;
+}
+ 
+.thumb.flip .thumb-wrapper {
+  transition: transform 1s;
+  transform-style: preserve-3d;           
+}
+
+.thumb.flip .thumb-detail {
+  transform: rotateY(-180deg);                        
+}
+
+.thumb.flip .thumb-front, .thumb.flip .thumb-detail {
+  backface-visibility: hidden;
+}
+
+.thumb.flip .flipIt {
+  transform: rotateY(-180deg);            
+}
+
+#user-graph-next-btn {
+  background-color: #4B7865;
+  font-size: .7em;
+}
+#user-graph-next-btn:hover {
+  background-color: #9CB06C;
+  cursor: pointer;
 }
