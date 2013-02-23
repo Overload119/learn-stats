@@ -41,3 +41,21 @@
   margin: 0 auto;
   text-align:center;
 }
+
+.graph-pictures-xaxis {
+  width: 100%;
+}
+.graph-pictures-xaxis div {
+  width: 19.8%;
+  float:left;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.graph-pictures-xaxis img {
+  border: 3px solid #333; 
+}
+
+.detail {
+  background:black;
+}

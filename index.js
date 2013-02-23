@@ -30,19 +30,25 @@ $(function() {
       $(this).data('step', 1);
     }
   });
-  var data = [ { x: 0, y: 3 },{ x: 1, y: 9 },{ x: 2, y: 7 },{ x: 3, y: 1 },{ x: 4, y: 6 }];
+  var userData = [ { x: 0, y: 3 },{ x: 1, y: 9 },{ x: 2, y: 7 },{ x: 3, y: 1 },{ x: 4, y: 6 }];
 
-  var graph = new Rickshaw.Graph( {
+  var userDataGraph = new Rickshaw.Graph( {
       element: document.querySelector('#user-ratings-graph'),
       renderer: 'bar',
       series: [
       {
-        color: 'steelblue',
-        data: data
+        color: "#9c646b",
+        data: userData
       }
       ]
   } );
 
-  graph.render();
+  var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+        graph: userDataGraph,
+        xFormatter: function(x) { return "Cat " + (x+1) },
+        yFormatter: function(y) { return y + "/10 cuteness" }
+  } );
+
+  userDataGraph.render();
 
 });
