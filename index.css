@@ -1,0 +1,37 @@
+.pink {
+  background-color: #9C646B;
+}
+
+.beige {
+  background-color: #D1C181;
+}
+
+.taupe {
+  background-color: #C79C81;
+}
+
+.light-green {
+  background-color: #9CB06C;
+}
+
+.green {
+  background-color: #4B7865;
+}
+
+.small-text {
+  font-size: 0.6em !important;
+}
+
+#intro-btn {
+  background-color: #9C646B;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1.5em;
+  padding: 12px;
+}
+
+#intro-btn:hover {
+  background-color: #a66c74;
+  cursor: pointer;
+}
