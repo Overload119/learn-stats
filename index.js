@@ -40,10 +40,7 @@ $(function() {
       function () {
         console.log('hit');
         $('.thumb-wrapper').addClass('flipIt');
-      }/*,
-      function () {
-        $('.thumb-wrapper').removeClass('flipIt');           
-      }*/
+      }
     );
 
   } else {
@@ -51,13 +48,11 @@ $(function() {
     $('#user-graph-next-btn').click(
       function () {
         $('.thumb-detail').stop().animate({bottom:0}, 500);
+        $(this).val("Show me");
         $(this).click( function() {
-          //TODO: make next slide here
+          Reveal.next();
         });
-      }/*,
-      function () {
-        $(this).find('.thumb-detail').stop().animate({bottom: ($(this).height() * -1) }, 500, 'easeOutCubic');          
-      }*/
+      }
     );
   }
 
@@ -70,7 +65,7 @@ $(function() {
       {
         color: "#9c646b",
         data: userData,
-        name: 'Cuteness'
+        name: 'Time'
       }
       ]
   } );
@@ -78,7 +73,7 @@ $(function() {
   var hoverDetail = new Rickshaw.Graph.HoverDetail( {
         graph: userDataGraph,
         xFormatter: function(x) { return null },
-        yFormatter: function(y) { return Math.floor(y) }
+        yFormatter: function(y) { return Math.floor(y) + " months" }
   } );
 
   userDataGraph.render();

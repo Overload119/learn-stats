@@ -32,7 +32,7 @@ Rickshaw.Graph.HoverDetail = Rickshaw.Class.create({
 	},
 
 	formatter: function(series, x, y, formattedX, formattedY, d) {
-		return series.name + ':&nbsp;' + formattedY;
+		return /*series.name + ':&nbsp;' + */formattedY;
 	},
 
 	update: function(e) {
