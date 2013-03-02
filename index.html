@@ -21,7 +21,6 @@
             <p class="small-text">Learn about the central limit theorem and it's implications in this interactive tutorial.</p>
             <hr/>
             <div class="inset green">
-              <h3 class="definition-header">DEFINITION</h3>
               <p class="definition-text">
                 Given a sufficiently large sample size from a population with a finite level of variance, the mean of all samples from the same population will be approximately equal to the mean of the population.
               </p>
@@ -32,7 +31,31 @@
         </section>
         <section>
           <div class="reset page taupe">
-            Single Horizontal Slide
+            <h2>Central Limit Theorem</h2>
+            <div class="two-panel">
+              <div class="panel-one">
+                Before getting into further details, lets collect some data (a sample) that we'll use for the basis of this tutorial.
+                <br/>
+                We went to an animal shelter and recorded the number of months it took for a cat to get adopted. In this mini-game you will try to guess how many months it took for each cat to get adopted.
+                <br/>
+
+                <input id="play-game" class="simple-btn" value="Play Game" type="button" />
+              </div>
+
+              <div class="panel-two">
+                <div class="cat-image-container">
+                  <img alt="there should be a cat here" src="./cats/cat1.jpg"/>
+                </div>
+                <p class="small-text">How many months before this cat was adopted?</p>
+                <div class="cat-raters">
+                  <input id="rate-one" class="rate-button" type="button" value="1" />
+                  <input id="rate-two" class="rate-button" type="button" value="2" />
+                  <input id="rate-three" class="rate-button" type="button" value="3" />
+                  <input id="rate-four" class="rate-button" type="button" value="4" />
+                  <input id="rate-five" class="rate-button" type="button" value="5" />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
         <section>
@@ -59,7 +82,7 @@
               </div>
             </div>
             <p>These ratings follow a random distribution - every person who rates the cats will have different opinions. Even so, the probability of getting a 10 for each cat is not equal; some cats are more likely to get a higher rating than others. The ratings will not conform to a normal distribution</p>
-            
+
           </div>
         </section>
       </div>
