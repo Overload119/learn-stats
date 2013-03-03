@@ -183,6 +183,7 @@ body {
 .reveal iframe {
 	max-width: 95%;
 	max-height: 95%;
+	background-color: #fff;
 }
 
 /** Prevents layering issues in certain browser/transition combinations */
@@ -1329,6 +1330,21 @@ body {
   vertical-align: top;
 }
 
+.reveal .one-third {
+	width: 280px;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.reveal .smaller-text {
+	font-size: 14px;
+}
+
+.reveal .small-img {
+	width: 274px;
+	height: 197px;
+}
+
 .cat-image-container img {
 	height: 300px;
 }
@@ -1344,4 +1360,16 @@ body {
 .simple-btn:hover {
 	background-color: #a66c74;
 	cursor: pointer;
+}
+
+.reveal #formula-box {
+	border: 0;
+	outline: none;
+	font-size: 19px;
+	width: 200px;
+	border-radius: 4px;
+}
+
+.reveal #formula-box-result {
+	font-size: 14px;
 }

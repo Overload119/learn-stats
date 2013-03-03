@@ -30,6 +30,45 @@ $(function() {
     }
   });
 
+  $('#roll-dice').click(function() {
+
+  });
+
+  $('#formula-box').keyup(function() {
+    var content = $(this).val();
+    var splitNum = content.split(' ');
+
+    console.log(content);
+
+    var numberArray = [];
+    for(var i = 0; i < splitNum.length; i++) {
+      if( splitNum[i] !== '' ) {
+        try {
+          numberArray.push( parseInt(splitNum[i], 10) );
+
+        }
+        catch(err) {
+        }
+      }
+    }
+
+    var n = numberArray.length;
+    var sum = 0;
+    for(var i = 0; i < n; i++) {
+      sum += numberArray[i];
+    }
+
+    var mean = Math.round( (sum / n) * 100 ) / 100;
+
+    var vsum = 0;
+    for(var i = 0; i < n; i++) {
+      vsum += Math.pow(numberArray[i] - mean, 2);
+    }
+
+    var variance = Math.round( (vsum / n) * 100) / 100;
+    $('#formula-box-result').text('Mean: ' + mean.toString() + ' | Variance: ' + variance.toString());
+  });
+
   var catGameCounter = 1;
   var catGameArray = [];
   $('#play-game').click(function() {

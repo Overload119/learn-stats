@@ -29,6 +29,46 @@
             <input value="I don't get it" type="button" id="intro-btn" />
           </div>
         </section>
+
+        <section>
+          <div class="reset page light-green">
+            <h2>foundational knowledge</h2>
+            <p class="small-text">Read below for a brief foundation on what you should know.</p>
+            <div class="one-third">
+              <img class="small-img" alt="img" src="normaldist.gif" />
+              <p class="smaller-text">
+                This is the graph of a normal distribution. The Central Limit Theorem (CLT) tells us that with large enough samples, the distribution of the <i>mean</i> will conform to this distribution.
+              </p>
+            </div>
+
+            <div class="one-third">
+              <img alt="img" src="formulas.jpg" />
+              <p class="smaller-text">
+                The mean of any sample is the sum of the data points, divided by the number of points.
+                The variance is the average number of squared differenced from the mean.
+                Enter numbers below, separated by spaces, to have these statistics generated.
+              </p>
+              <input id="formula-box" class="small-box" type="text" placeholder="1 2 3 ..."/>
+              <br/>
+              <span id="formula-box-result"></span>
+            </div>
+
+            <div class="one-third">
+              <img alt="img" src="/" />
+              <p class="smaller-text">
+                Consider a dice roll of a six-sided die. Statistically, the average roll would be 3.5.
+                The variance would be 35/12.
+                <br/>
+                <a id="roll-dice" href="#">Click here to roll the die.</a>
+                <br/>
+                At first you'll notice the graph doesn't seem to follow any distribution. However, the more times you roll the dice, you see the graph look more and more like the normal distribution seen on the left.
+              </p>
+            </div>
+
+            <input value="Next" type="button" id="intro-btn" />
+          </div>
+        </section>
+
         <section>
           <div class="reset page taupe">
             <h2>Central Limit Theorem</h2>
