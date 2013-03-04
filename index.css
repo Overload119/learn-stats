@@ -184,10 +184,14 @@
 }
 .generated-graph {
   display: inline-block;
-  width: 200px;
-  height: 150px;
-  background:black;
-  line-height:150px;
-  font-size: 100px;
+  width: 210px;
+  height: 120px;
+  background: rgba(0,0,0,0.8);
+  line-height:120px;
+  font-size: 50px;
   color: white;
+}
+
+.clear-graph {
+  background: none;
 }

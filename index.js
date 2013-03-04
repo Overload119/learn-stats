@@ -50,15 +50,54 @@ $(function() {
 
   } else {
     // CSS 3D is not supported, use the scroll up effect instead
-    $('#user-graph-next-btn').click(
-      function () {
-        $('.thumb-detail').stop().animate({bottom:0}, 500);
-        $(this).val("Show me");
-        $(this).click( function() {
-          Reveal.next();
+    $('#user-graph-next-btn').click( function () {
+      $('.thumb-detail').stop().animate({bottom:0}, 500);
+      $(this).val("Show me");
+      $(this).off('click').click( function() {
+        Reveal.next();
+      });
+    });
+  }
+  $("#what-happens-btn").click( function(){
+    var graphs = [];
+    $('.generated-graph').addClass('clear-graph').html('');
+    graphs = rollGraphs();
+    $(this).val('with a different 5?').off('click').click(function() {
+      graphs = rollGraphs();
+      $('#middle-bar-text').html("See how random the results are? ");
+      $(this).val('Try one last time').off('click').click(function(){
+        graphs = rollGraphs();
+        $('#middle-bar-text').html("What happens ");
+        $(this).val('if we average the ratings?').off('click').click(function(){
+          $(this).val('if we take a LOT of averages?').off('click').click(function(){
+            Reveal.next();
+          });
+          $('.generated-graph').removeClass('clear-graph').html('');
+          var l = graphs.length;
+          for (var i = 1; i <= l; i++){
+            var data = graphs[i-1].series[0].data;
+            var sum = 0;
+            for (var j = 0; j < data.length; j++){
+              sum += data[j].y;
+            }
+            $("#generated-graph-" + i).html(sum/data.length);
+          }
         });
-      }
-    );
+      });
+    });
+  });
+  function rollGraphs(){
+    var graphs = [];
+    graphs.push(generateSmallGraph(1));
+    graphs.push(generateSmallGraph(2));
+    graphs.push(generateSmallGraph(3));
+    graphs.push(generateSmallGraph(4));
+    return graphs;
+    /*
+    setTimeout(function() { generateSmallGraph(2); }, 200);
+    setTimeout(function() { generateSmallGraph(3); }, 400);
+    setTimeout(function() { generateSmallGraph(4); }, 600);
+    */
   }
 
   var userData = [ { x: 0, y: 3 },{ x: 1, y: 9 },{ x: 2, y: 7 },{ x: 3, y: 1 },{ x: 4, y: 6 }];
@@ -80,6 +119,22 @@ $(function() {
   } );
   userDataGraph.render();
 
+  function generateSmallGraph(x) {
+    $('#generated-graph-' + x).html('');
+    var generated = new Rickshaw.Graph( {
+      element: document.querySelector("#generated-graph-" + x),
+      renderer: 'bar',
+      series: [
+      {
+        color: "#000",
+        data: getNumbers(50),
+        name: 'Time'
+      }
+      ]
+    });
+    generated.render();
+    return generated;
+  }
   var generatedGraphLarge = new Rickshaw.Graph( {
       element: document.querySelector('#generated-graph-large'),
       width: 800,
