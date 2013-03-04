@@ -16,9 +16,15 @@ $(function() {
     transition: 'default' // default/cube/page/concave/zoom/linear/fade/none
   });
 
+  function getNumbers(l){
+    var array = [];
+    while(l--){
+      array.push( { x: l, y: Math.floor((Math.random()*5)+1)} );
+    }
+    return(array);
+  }
   $('#intro-btn').click(function() {
     var currentStep = $(this).data('step');
-    console.log(currentStep);
     if(currentStep === 1) {
       Reveal.next();
     } else {
@@ -38,7 +44,6 @@ $(function() {
     // add/remove flip class that make the transition effect
     $('#user-graph-next-btn').click(
       function () {
-        console.log('hit');
         $('.thumb-wrapper').addClass('flipIt');
       }
     );
@@ -57,7 +62,6 @@ $(function() {
   }
 
   var userData = [ { x: 0, y: 3 },{ x: 1, y: 9 },{ x: 2, y: 7 },{ x: 3, y: 1 },{ x: 4, y: 6 }];
-
   var userDataGraph = new Rickshaw.Graph( {
       element: document.querySelector('#user-ratings-graph'),
       renderer: 'bar',
@@ -69,13 +73,32 @@ $(function() {
       }
       ]
   } );
-
   var hoverDetail = new Rickshaw.Graph.HoverDetail( {
         graph: userDataGraph,
         xFormatter: function(x) { return null },
         yFormatter: function(y) { return Math.floor(y) + " months" }
   } );
-
   userDataGraph.render();
 
+  var generatedGraphLarge = new Rickshaw.Graph( {
+      element: document.querySelector('#generated-graph-large'),
+      width: 800,
+      height: 200,
+      renderer: 'bar',
+      series: [
+      {
+        color: '#4b7865',
+        data: getNumbers(50),
+        name: 'Time'
+      }
+      ]
+  });
+  //TODO: implement the fuckin axis marker`
+  /*var generatedGraphLargeYaxis = new Rickshaw.Graph.Axis.Y( {
+    element: document.getElementById('#generated-graph-large-yaxis'),
+    graph: generatedGraphLarge,
+    orientation: 'left',
+    tickFormat: Rickshaw.Fixtures.Number.formatKBMT,
+  });*/
+  generatedGraphLarge.render();
 });

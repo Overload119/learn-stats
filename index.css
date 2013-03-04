@@ -146,3 +146,48 @@
   background-color: #9CB06C;
   cursor: pointer;
 }
+
+#generated-graph-large {
+  display: inline-block;
+  /*background:white;
+  border-left:6px solid white;
+  border-right: 6px solid white;
+  border-top: 3px solid white;*/
+}
+#generated-graph-large-yaxis {
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+}
+#generated-graph-label {
+  position: relative;
+  top: -15px;
+  font-size: .6em;
+}
+#middle-bar{
+  margin-top:30px;
+  font-size: .8em;
+  width: 100%
+}
+#what-happens-btn {
+  font-size: .8em;
+  background-color: #4b7865;
+}
+#what-happens-btn:hover{
+  background-color: #9CB06C;
+  cursor: pointer;
+}
+
+#bottom-graphs-wrapper {
+  margin-top: 50px;
+}
+.generated-graph {
+  display: inline-block;
+  width: 200px;
+  height: 150px;
+  background:black;
+  line-height:150px;
+  font-size: 100px;
+  color: white;
+}
