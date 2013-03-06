@@ -172,7 +172,6 @@
 }
 #what-happens-btn {
   font-size: .8em;
-  background-color: #4b7865;
 }
 #what-happens-btn:hover{
   background-color: #9CB06C;
@@ -194,4 +193,13 @@
 
 .clear-graph {
   background: none;
+}
+
+#final-graph-header {
+  font-size: .7em;
+}
+
+#final-graph-header input {
+  font-size: .7em;
+  margin: 8px;
 }

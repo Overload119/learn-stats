@@ -69,7 +69,7 @@ $(function() {
         graphs = rollGraphs();
         $('#middle-bar-text').html("What happens ");
         $(this).val('if we average the ratings?').off('click').click(function(){
-          $(this).val('if we take a LOT of averages?').off('click').click(function(){
+          $(this).val('if a lot of people rate the cats?').off('click').click(function(){
             Reveal.next();
           });
           $('.generated-graph').removeClass('clear-graph').html('');
@@ -98,6 +98,41 @@ $(function() {
     setTimeout(function() { generateSmallGraph(3); }, 400);
     setTimeout(function() { generateSmallGraph(4); }, 600);
     */
+  }
+  $("#five-cats").click( function() { $("#value-plot").html(''); generateNormalGraph(5) });
+  $("#thirty-cats").click( function() { $("#value-plot").html(''); generateNormalGraph(30) });
+  function generateNormalGraph(x){
+    var array = [];
+    for (var i = 0; i < 1000; i++){
+      var sum = 0;
+      for (var j = 0; j < x; j++){
+        sum += Math.floor((Math.random()*5)+1);
+      }
+      sum /= x;
+      if (array[sum]){
+        array[sum] += 1;
+      }
+      else{
+        array[sum] = 1;
+      }
+    }
+    var newarray = []; //HACKISH AS FUCK I HATE THIS CODE
+    for(var key in array){
+      newarray.push({'x': parseFloat(parseFloat(key).toFixed(4)), 'y': array[key]});
+    }
+    console.log(newarray);
+    var normalGraph = new Rickshaw.Graph( {
+      element: document.querySelector('#value-plot'),
+      height: 300,
+      width: 600,
+      renderer: 'bar',
+      series: [
+      {
+        color: "#000",
+        data: newarray,
+      }]
+    });
+    normalGraph.render();
   }
 
   var userData = [ { x: 0, y: 3 },{ x: 1, y: 9 },{ x: 2, y: 7 },{ x: 3, y: 1 },{ x: 4, y: 6 }];
