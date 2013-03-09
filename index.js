@@ -1,28 +1,3 @@
-(function() {
-    var lastTime = 0;
-    var vendors = ['webkit', 'moz'];
-    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-        window.cancelAnimationFrame =
-          window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
-    }
-
-    if (!window.requestAnimationFrame)
-        window.requestAnimationFrame = function(callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-              timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
-
-    if (!window.cancelAnimationFrame)
-        window.cancelAnimationFrame = function(id) {
-            clearTimeout(id);
-        };
-}());
-
 $(function() {
   Reveal.initialize({
     width: 960,
@@ -62,143 +37,170 @@ $(function() {
     }
   });
 
-  // Setup the Dice canvas
-  (function() {
-    var diceCanvas = document.getElementById('dice-canvas');
-    var g = diceCanvas.getContext('2d');
-    var graph = [0, 0, 0, 0, 0, 0];
-    var diceRolling = false;
-    var diceAlpha = 0;
-    var diceValue = 0;
+  if ($('html').hasClass('csstransforms3d')) {    
+    // if it's supported, remove the scroll effect add the cool card flipping instead
+    $('.thumb').removeClass('scroll').addClass('flip');     
 
-    var sampleSum = 0;
-    var sampleSize = 0;
-
-    var BARWIDTH = 45;
-    var CANVAS_WIDTH = 274;
-    var CANVAS_HEIGHT = 197;
-    var DICE_WIDTH = 64;
-    var DICE_HEIGHT = 64;
-    var DICE_SWITCH_TIME = 2000;
-    var DICE_SWITCH_TIME_MAX = 1000;
-
-    var updateDiceStat = function() {
-      var text = 'Your sample mean is ' + Math.round((sampleSum / sampleSize) * 100) / 100 + ' and your sample size is ' + sampleSize + '.';
-      $('#dice-stat').text(text);
-    }
-
-    var drawDice = function(num) {
-      var centerX = Math.floor( CANVAS_WIDTH / 2 ) - Math.floor( DICE_WIDTH / 2 );
-      var centerY = Math.floor( CANVAS_HEIGHT / 2 ) - Math.floor( DICE_HEIGHT / 2 );
-      var HOLESIZE = 14;
-      var PADDING = 2;
-
-      g.strokeStyle = 'black';
-      g.fillStyle = '#fff';
-
-      g.fillRect(centerX, centerY, DICE_WIDTH, DICE_HEIGHT);
-      g.strokeRect(centerX, centerY, DICE_WIDTH, DICE_HEIGHT);
-
-      centerX = centerX + Math.floor(DICE_WIDTH/2) - Math.floor(HOLESIZE/2);
-      centerY = centerY + Math.floor(DICE_HEIGHT/2) - Math.floor(HOLESIZE/2);
-
-      g.fillStyle = 'rgba(0, 0, 0, ' + diceAlpha + ')'
-      if(num === 1) {
-        g.fillRect(centerX, centerY, HOLESIZE, HOLESIZE);
+    // add/remove flip class that make the transition effect
+    $('#user-graph-next-btn').click(
+      function () {
+        $('.thumb-wrapper').addClass('flipIt');
       }
-      else if(num === 2) {
-        g.fillRect(centerX - HOLESIZE - PADDING, centerY - HOLESIZE - PADDING, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX + HOLESIZE + PADDING, centerY + HOLESIZE + PADDING, HOLESIZE, HOLESIZE);
-      }
-      else if(num === 3) {
-        g.fillRect(centerX, centerY, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX - HOLESIZE - PADDING, centerY - HOLESIZE - PADDING, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX + HOLESIZE + PADDING, centerY + HOLESIZE + PADDING, HOLESIZE, HOLESIZE);
-      }
-      else if(num === 4) {
-        g.fillRect(centerX - HOLESIZE - PADDING, centerY - HOLESIZE - PADDING, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX - HOLESIZE - PADDING, centerY + HOLESIZE + PADDING, HOLESIZE, HOLESIZE);
+    );
 
-        g.fillRect(centerX + HOLESIZE + PADDING, centerY - HOLESIZE - PADDING, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX + HOLESIZE + PADDING, centerY + HOLESIZE + PADDING, HOLESIZE, HOLESIZE);
-      }
-      else if(num === 5) {
-        g.fillRect(centerX, centerY, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX - HOLESIZE - PADDING, centerY - HOLESIZE - PADDING, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX + HOLESIZE + PADDING, centerY + HOLESIZE + PADDING, HOLESIZE, HOLESIZE);
-
-        g.fillRect(centerX - HOLESIZE - PADDING, centerY + HOLESIZE + PADDING, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX + HOLESIZE + PADDING, centerY - HOLESIZE - PADDING, HOLESIZE, HOLESIZE);
-      }
-      else if(num === 6) {
-        g.fillRect(centerX - HOLESIZE - PADDING, centerY - HOLESIZE - PADDING, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX - HOLESIZE - PADDING, centerY + HOLESIZE + PADDING, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX + HOLESIZE + PADDING, centerY - HOLESIZE - PADDING, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX + HOLESIZE + PADDING, centerY + HOLESIZE + PADDING, HOLESIZE, HOLESIZE);
-
-        g.fillRect(centerX + HOLESIZE + PADDING, centerY, HOLESIZE, HOLESIZE);
-        g.fillRect(centerX - HOLESIZE - PADDING, centerY, HOLESIZE, HOLESIZE);
-      }
-    }
-
-    var render = function() {
-      g.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-      g.fillStyle = 'black';
-      // Draw the X-axis graph
-      for(var i = 0; i < 6; i++) {
-        g.strokeStyle = 'white'
-        g.fillRect(i * BARWIDTH, (CANVAS_HEIGHT - graph[i] * 10) - 22, BARWIDTH, graph[i] * 10);
-        g.strokeRect(i * BARWIDTH, (CANVAS_HEIGHT - graph[i] * 10) - 22, BARWIDTH, graph[i] * 10);
-        g.font = '11px Arial';
-        g.strokeStyle = 'black';
-        g.strokeText((i + 1).toString(), 22 + i * BARWIDTH, CANVAS_HEIGHT - 11);
-      }
-
-      if(diceRolling) {
-        diceAlpha -= 0.05;
-        drawDice(diceValue);
-
-        if(diceAlpha < 0) {
-          diceRolling = false;
-          graph[diceValue-1]++;
-          sampleSize++;
-          sampleSum += diceValue;
-          updateDiceStat();
-        }
-      }
-    }
-
-    var animate = function() {
-      requestAnimationFrame(animate);
-      render();
-    }
-
-    $('#roll-dice').click(function() {
-      if( diceRolling === false ) {
-        diceRolling = true;
-        diceAlpha = 1;
-        diceValue = Math.floor(Math.random() * 6) + 1;
-      }
+  } else {
+    // CSS 3D is not supported, use the scroll up effect instead
+    $('#user-graph-next-btn').click( function () {
+      $('.thumb-detail').stop().animate({bottom:0}, 500);
+      $(this).val("Show me");
+      $(this).off('click').click( function() {
+        Reveal.next();
+      });
     });
+  }
+  $("#what-happens-btn").click( function(){
+    var graphs = [];
+    $('.generated-graph').addClass('clear-graph').html('');
+    graphs = rollGraphs();
+    $(this).val('with a different 5?').off('click').click(function() {
+      graphs = rollGraphs();
+      $('#middle-bar-text').html("See how random the results are? ");
+      $(this).val('Try one last time').off('click').click(function(){
+        graphs = rollGraphs();
+        $('#middle-bar-text').html("What happens ");
+        $(this).val('if we average the ratings?').off('click').click(function(){
+          $(this).val('if a lot of people rate the cats?').off('click').click(function(){
+            Reveal.next();
+          });
+          $('.generated-graph').removeClass('clear-graph').html('');
+          var l = graphs.length;
+          for (var i = 1; i <= l; i++){
+            var data = graphs[i-1].series[0].data;
+            var sum = 0;
+            for (var j = 0; j < data.length; j++){
+              sum += data[j].y;
+            }
+            $("#generated-graph-" + i).html(sum/data.length);
+          }
+        });
+      });
+    });
+  });
+  function rollGraphs(){
+    var graphs = [];
+    graphs.push(generateSmallGraph(1));
+    graphs.push(generateSmallGraph(2));
+    graphs.push(generateSmallGraph(3));
+    graphs.push(generateSmallGraph(4));
+    return graphs;
+    /*
+    setTimeout(function() { generateSmallGraph(2); }, 200);
+    setTimeout(function() { generateSmallGraph(3); }, 400);
+    setTimeout(function() { generateSmallGraph(4); }, 600);
+    */
+  }
+  $("#five-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(5)}, 0) });
+  $("#ten-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(10)}, 0) });
+  $("#fifteen-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(15)}, 0) });
+  $("#thirty-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(30)}, 0) });
+  function generateNormalGraph(cats){
+    var averageOccurences = [];
+    for (var i = 0; i < $("#number-of-people").val(); i++){
+      var sum = 0;
+      for (var j = 0; j < cats; j++){
+        sum += Math.floor((Math.random()*5)+1);
+      }
+      sum /= cats;
+      sum = sum.toFixed(5);
+      if (averageOccurences[sum]){
+        averageOccurences[sum] += 1;
+      }
+      else{
+        averageOccurences[sum] = 1;
+      }
+    }
+    var newarray = []; //HACKISH AS FUCK I HATE THIS CODE
+    for(var key in averageOccurences){
+      newarray.push({'x': parseFloat(key), 'y': averageOccurences[key]});
+    }
+    var normalGraph = new Rickshaw.Graph( {
+      element: document.querySelector('#value-plot'),
+      renderer: 'bar',
+      series: [
+      {
+        color: "#000",
+        data: newarray.sort(function(a, b){
+          if (a.x < b.x) return -1;
+          if (a.x > b.x) return 1;
+          return 0;
+        })
+      }]
+    });
+    $("#loading-gif").hide();
+    normalGraph.render();
+  }
 
-    // Start the canvas code
-    animate();
-  })();
+  function swag (a) {
+    return a;
+  }
+
+
+  function generateSmallGraph(x) {
+    $('#generated-graph-' + x).html('');
+    var generated = new Rickshaw.Graph( {
+      element: document.querySelector("#generated-graph-" + x),
+      renderer: 'bar',
+      series: [
+      {
+        color: "#000",
+        data: getNumbers(50),
+        name: 'Time'
+      }
+      ]
+    });
+    generated.render();
+    return generated;
+  }
+  var generatedGraphLarge = new Rickshaw.Graph( {
+      element: document.querySelector('#generated-graph-large'),
+      width: 800,
+      height: 200,
+      renderer: 'bar',
+      series: [
+      {
+        color: '#4b7865',
+        data: getNumbers(50),
+        name: 'Time'
+      }
+      ]
+  });
+  //TODO: implement the fuckin axis marker`
+  /*var generatedGraphLargeYaxis = new Rickshaw.Graph.Axis.Y( {
+    element: document.getElementById('#generated-graph-large-yaxis'),
+    graph: generatedGraphLarge,
+    orientation: 'left',
+    tickFormat: Rickshaw.Fixtures.Number.formatKBMT,
+  });*/
+  generatedGraphLarge.render();
+  $('#roll-dice').click(function() {
+
+  });
 
   $('#formula-box').keyup(function() {
     var content = $(this).val();
     var splitNum = content.split(' ');
-    if($.trim(content) === '') {
-      content = '0';
-      splitNum = content.split(' ');
-    }
+
+    console.log(content);
 
     var numberArray = [];
     for(var i = 0; i < splitNum.length; i++) {
       if( splitNum[i] !== '' ) {
         try {
           numberArray.push( parseInt(splitNum[i], 10) );
-        } catch(err) {}
+
+        }
+        catch(err) {
+        }
       }
     }
 
