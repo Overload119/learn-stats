@@ -123,13 +123,12 @@ $(function() {
     console.log(newarray);
     var normalGraph = new Rickshaw.Graph( {
       element: document.querySelector('#value-plot'),
-      height: 300,
-      width: 600,
       renderer: 'bar',
       series: [
       {
         color: "#000",
-        data: newarray,
+        //data: [ {x: 3, y: 65}, {x: 5, y: 9} ]
+        data: newarray
       }]
     });
     normalGraph.render();
