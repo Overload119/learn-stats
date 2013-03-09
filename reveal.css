@@ -1357,6 +1357,12 @@ body {
 	font-size: 1.4em;
 }
 
+.simple-btn.small {
+	padding: 4px;
+	font-size: 0.65em;
+	float: right;
+}
+
 .simple-btn:hover {
 	background-color: #a66c74;
 	cursor: pointer;
