@@ -108,7 +108,7 @@
               <div id="user-ratings-graph"></div>
               <div class="graph-pictures-xaxis">
                 <div>
-                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
+                  <img id="cat1-thumbnail" src="./cats/cat1.jpg" />
                 </div><div>
                   <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
                 </div><div>
@@ -142,7 +142,7 @@
               <div id="generated-graph-large"></div>
               <div id="generated-graph-label">This dude rated 50 cats - check out the results. They are just as random as yours.</div>
             </div>
-            <div id="middle-bar"><span id='middle-bar-text'>What Happens </span><input value="if five people rate the cats?" type="button" id="what-happens-btn" class="btn green" /> </div>
+            <div id="middle-bar"><span id='middle-bar-text'>What Happens </span><input value="if five people rate 50 cats?" type="button" id="what-happens-btn" class="btn green" /> </div>
             <div id = "bottom-graphs-wrapper">
              <div class="generated-graph" id="generated-graph-1">?</div>
              <div class="generated-graph" id="generated-graph-2">?</div>
@@ -154,11 +154,9 @@
         <section>
           <div class="page green">
             <div id="final-graph-header">
-              Plot the average for 1000 people rating: <input value="5 cats" type="button" class="btn pink" id="five-cats" /><input value="10 cats" type="button" class="btn pink" id="ten-cats" /><input value="15 cats" type="button" class="btn pink" id="fifteen-cats" /><input value="30 cats" type="button" class="btn pink" id="thirty-cats" />
+              Plot the average for <div id="people-select-wrapper"><select id="number-of-people"><option value = 100>100</option><option value = 1000>1000</option><option value = 10000 selected="selected">10 000</option><option value = 100000>100 000</option><option value = 1000000>1 000 000</option></select></div> people rating: <input value="5 cats" type="button" class="btn pink" id="five-cats" /><input value="10 cats" type="button" class="btn pink" id="ten-cats" /><input value="15 cats" type="button" class="btn pink" id="fifteen-cats" /><input value="30 cats" type="button" class="btn pink" id="thirty-cats" />
             </div>
             <div id="value-plot"></div>
-            <p>These ratings follow a random distribution - every person who rates the cats will have different opinions. Even so, the probability of getting a 10 for each cat is not equal; some cats are more likely to get a higher rating than others. The ratings will not conform to a normal distribution</p>
-
           </div>
         </section>
       </div>

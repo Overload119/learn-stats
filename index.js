@@ -100,25 +100,28 @@ $(function() {
     */
   }
   $("#five-cats").click( function() { $("#value-plot").html(''); generateNormalGraph(5) });
+  $("#ten-cats").click( function() { $("#value-plot").html(''); generateNormalGraph(10) });
+  $("#fifteen-cats").click( function() { $("#value-plot").html(''); generateNormalGraph(15) });
   $("#thirty-cats").click( function() { $("#value-plot").html(''); generateNormalGraph(30) });
-  function generateNormalGraph(x){
-    var array = [];
-    for (var i = 0; i < 1000; i++){
+  function generateNormalGraph(cats){
+    var averageOccurences = [];
+    for (var i = 0; i < $("#number-of-people").val(); i++){
       var sum = 0;
-      for (var j = 0; j < x; j++){
+      for (var j = 0; j < cats; j++){
         sum += Math.floor((Math.random()*5)+1);
       }
-      sum /= x;
-      if (array[sum]){
-        array[sum] += 1;
+      sum /= cats;
+      sum = sum.toFixed(5);
+      if (averageOccurences[sum]){
+        averageOccurences[sum] += 1;
       }
       else{
-        array[sum] = 1;
+        averageOccurences[sum] = 1;
       }
     }
     var newarray = []; //HACKISH AS FUCK I HATE THIS CODE
-    for(var key in array){
-      newarray.push({'x': parseFloat(parseFloat(key).toFixed(4)), 'y': array[key]});
+    for(var key in averageOccurences){
+      newarray.push({'x': parseFloat(key), 'y': averageOccurences[key]});
     }
     console.log(newarray);
     var normalGraph = new Rickshaw.Graph( {
@@ -127,31 +130,20 @@ $(function() {
       series: [
       {
         color: "#000",
-        //data: [ {x: 3, y: 65}, {x: 5, y: 9} ]
-        data: newarray
+        data: newarray.sort(function(a, b){
+          if (a.x < b.x) return -1;
+          if (a.x > b.x) return 1;
+          return 0;
+        })
       }]
     });
     normalGraph.render();
   }
 
-  var userData = [ { x: 0, y: 3 },{ x: 1, y: 9 },{ x: 2, y: 7 },{ x: 3, y: 1 },{ x: 4, y: 6 }];
-  var userDataGraph = new Rickshaw.Graph( {
-      element: document.querySelector('#user-ratings-graph'),
-      renderer: 'bar',
-      series: [
-      {
-        color: "#9c646b",
-        data: userData,
-        name: 'Time'
-      }
-      ]
-  } );
-  var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-        graph: userDataGraph,
-        xFormatter: function(x) { return null },
-        yFormatter: function(y) { return Math.floor(y) + " months" }
-  } );
-  userDataGraph.render();
+  function swag (a) {
+    return a;
+  }
+
 
   function generateSmallGraph(x) {
     $('#generated-graph-' + x).html('');
@@ -238,13 +230,31 @@ $(function() {
   $('.panel-two').hide(); // Hide this at the start
   $('.rate-button').click(function() {
     var rating = $(this).val();
-    catGameArray.push(rating);
+    catGameArray.push({ x: catGameCounter - 1, y: parseFloat(rating) });
     catGameCounter++;
-    $('.cat-image-container img').attr('src', './cats/cat' + catGameCounter + '.jpg');
-    $('.cat-image-container img').hide().fadeIn();
     if(catGameArray.length === 5) {
       Reveal.next();
+      var userDataGraph = new Rickshaw.Graph( {
+        element: document.querySelector('#user-ratings-graph'),
+        renderer: 'bar',
+        series: [
+          {
+            color: "#9c646b",
+            data: catGameArray,
+            name: 'Time'
+          }
+        ]
+      } );
+      var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+        graph: userDataGraph,
+        xFormatter: function(x) { return null },
+        yFormatter: function(y) { return Math.floor(y) + " months" }
+      } );
+      userDataGraph.render();
+      return;
     }
+    $('.cat-image-container img').attr('src', './cats/cat' + catGameCounter + '.jpg');
+    $('.cat-image-container img').hide().fadeIn();
   });
 
 });

@@ -165,14 +165,17 @@
   top: -15px;
   font-size: .6em;
 }
+
 #middle-bar{
   margin-top:30px;
   font-size: .8em;
   width: 100%
 }
+
 #what-happens-btn {
   font-size: .8em;
 }
+
 #what-happens-btn:hover{
   background-color: #9CB06C;
   cursor: pointer;
@@ -199,7 +202,34 @@
   font-size: .7em;
 }
 
+#final-graph-header .btn {
+  margin: 4px;
+}
+
 #final-graph-header input {
   font-size: .7em;
   margin: 8px;
+}
+
+#value-plot {
+  background: white;
+  height: 450px;
+  width: 800px;
+  margin: 20px auto 0 auto ;
+}
+
+#people-select-wrapper {
+  display: inline-block;
+}
+
+#people-select-wrapper select {
+  display: inline-block;
+  padding: 3px;
+  font-size: .8em;
+  width: 120px;
+  outline: none;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
 }
