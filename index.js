@@ -99,10 +99,10 @@ $(function() {
     setTimeout(function() { generateSmallGraph(4); }, 600);
     */
   }
-  $("#five-cats").click( function() { $("#value-plot").html(''); generateNormalGraph(5) });
-  $("#ten-cats").click( function() { $("#value-plot").html(''); generateNormalGraph(10) });
-  $("#fifteen-cats").click( function() { $("#value-plot").html(''); generateNormalGraph(15) });
-  $("#thirty-cats").click( function() { $("#value-plot").html(''); generateNormalGraph(30) });
+  $("#five-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(5)}, 0) });
+  $("#ten-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(10)}, 0) });
+  $("#fifteen-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(15)}, 0) });
+  $("#thirty-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(30)}, 0) });
   function generateNormalGraph(cats){
     var averageOccurences = [];
     for (var i = 0; i < $("#number-of-people").val(); i++){
@@ -123,7 +123,6 @@ $(function() {
     for(var key in averageOccurences){
       newarray.push({'x': parseFloat(key), 'y': averageOccurences[key]});
     }
-    console.log(newarray);
     var normalGraph = new Rickshaw.Graph( {
       element: document.querySelector('#value-plot'),
       renderer: 'bar',
@@ -137,6 +136,7 @@ $(function() {
         })
       }]
     });
+    $("#loading-gif").hide();
     normalGraph.render();
   }
 

@@ -200,6 +200,7 @@
 }
 
 #final-graph-header {
+  height: 55px;
   font-size: .7em;
 }
 
@@ -212,11 +213,41 @@
   margin: 8px;
 }
 
+#value-plot-y {
+  width: 450px;
+  position: absolute;
+  left:-160px;
+  top: 320px;
+  font-size: .5em;
+  -webkit-transform: rotate(-90deg); 
+  -moz-transform: rotate(-90deg);
+}
 #value-plot {
   background: white;
   height: 450px;
   width: 800px;
-  margin: 20px auto 0 auto ;
+  margin: 0 auto;
+  font-size: 400px;
+  line-height: 450px;
+  color:black;
+}
+#loading-gif {
+  position: absolute;
+  top: 300px;
+  left: 450px;
+  display:none;
+}
+#value-plot-x {
+  width:800px;
+  text-align:center;
+  margin: 0 auto;
+  font-size: .6em;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
 }
 
 #people-select-wrapper {
