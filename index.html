@@ -4,10 +4,13 @@
     <title>Central Limit Theorem</title>
     <link rel="stylesheet" type="text/css" href="reveal.css" />
     <link rel="stylesheet" href="default.css" id="theme">
+    <!--<link rel="stylesheet" href="detail.css" id="theme">-->
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.1.0/rickshaw.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <script type="text/javascript" src="Rickshaw.Graph.HoverDetail.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css" />
   </head>
@@ -16,7 +19,7 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <div class="reset page light-green">
+          <div class="page light-green">
             <h2>Central Limit Theorem</h2>
             <p class="small-text">Learn about the central limit theorem and it's implications in this interactive tutorial.</p>
             <hr/>
@@ -26,7 +29,7 @@
               </p>
             </div>
             <br />
-            <input value="I don't get it" type="button" id="intro-btn" />
+            <input value="I don't get it" type="button" id="intro-btn" class="btn"  />
           </div>
         </section>
 
@@ -109,30 +112,64 @@
           </div>
         </section>
         <section>
-          <div class="reset page beige">
-            <h4>What do those ratings mean?</h4>
-            <div class="reset graph-wrapper">
+          <div class="page beige">
+            <h5>What do those ratings mean?</h5>
+            <div class="graph-wrapper">
               <div id="user-ratings-graph"></div>
               <div class="graph-pictures-xaxis">
                 <div>
-                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
-                </div>
-                <div>
-                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
-                </div>
-                <div>
-                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
-                </div>
-                <div>
-                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
-                </div>
-                <div>
-                  <img id="cat1-thumbnail" src="http://placekitten.com/80/40" />
+                  <img id="cat1-thumbnail" src="./cats/cat1.jpg" />
+                </div><div>
+                  <img id="cat1-thumbnail" src="./cats/cat2.jpg" />
+                </div><div>
+                  <img id="cat1-thumbnail" src="./cats/cat3.jpg" />
+                </div><div>
+                  <img id="cat1-thumbnail" src="./cats/cat4.jpg" />
+                </div><div>
+                  <img id="cat1-thumbnail" src="./cats/cat5.jpg" />
                 </div>
               </div>
             </div>
-            <p>These ratings follow a random distribution - every person who rates the cats will have different opinions. Even so, the probability of getting a 10 for each cat is not equal; some cats are more likely to get a higher rating than others. The ratings will not conform to a normal distribution</p>
-
+            <br>
+            <div class="thumb scroll">
+              <div class="thumb-wrapper">
+                <div class="thumb-front">
+                  <p class='small-text dark'>These ratings follow a random distribution - every person who rates the cats will have different opinions, but some cats are more likely to get a higher rating than others. These factors mean the adoption times will not conform to a normal distribution</p>
+                </div>
+                <div class="thumb-detail">
+                  <p class='small-text dark'>If we have way more people rate way more cats, the average adoption times will conform to a normal distribution!</p>
+                </div>
+              </div>
+            </div>    
+            <br>
+            <input value="So what?" type="button" id="user-graph-next-btn" class="btn" />
+          </div>
+        </section>
+        <section>
+          <div class="page taupe">
+            <div>
+              <div id="generated-graph-large-yaxis"></div>
+              <div id="generated-graph-large"></div>
+              <div id="generated-graph-label">This dude rated 50 cats - check out the results. They are just as random as yours.</div>
+            </div>
+            <div id="middle-bar"><span id='middle-bar-text'>What Happens </span><input value="if five people rate 50 cats?" type="button" id="what-happens-btn" class="btn green" /> </div>
+            <div id = "bottom-graphs-wrapper">
+             <div class="generated-graph" id="generated-graph-1">?</div>
+             <div class="generated-graph" id="generated-graph-2">?</div>
+             <div class="generated-graph" id="generated-graph-3">?</div>
+             <div class="generated-graph" id="generated-graph-4">?</div>
+            <div>
+          </div>
+        </section>
+        <section>
+          <div class="page green">
+            <div id="final-graph-header">
+              Plot the average for <div id="people-select-wrapper"><select id="number-of-people"><option value = 100>100</option><option value = 1000>1000</option><option value = 10000 selected="selected">10 000</option><option value = 100000>100 000</option></select></div> people rating: <input value="5 cats" type="button" class="btn pink" id="five-cats" /><input value="10 cats" type="button" class="btn pink" id="ten-cats" /><input value="15 cats" type="button" class="btn pink" id="fifteen-cats" /><input value="30 cats" type="button" class="btn pink" id="thirty-cats" />
+            </div>
+            <div id="value-plot-y">Number of Times An Average Occurs</div>
+            <div id="value-plot">?</div>
+            <!--<img id="loading-gif" src="loadingspinner.gif" />-->
+            <div id="value-plot-x"><span class='left'>0</span>Average Time Until Adoption<span class='right'>5</span></div>
           </div>
         </section>
       </div>
