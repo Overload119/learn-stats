@@ -42,10 +42,14 @@
             </div>
 
             <div class="one-third">
-              <img alt="img" src="formulas.jpg" />
+              <img class="small-img" alt="img" src="formulas.jpg" />
               <p class="smaller-text">
-                The mean of any sample is the sum of the data points, divided by the number of points.
-                The variance is the average number of squared differenced from the mean.
+                The <i>mean</i> of any sample is the sum of the data points, divided by the number of points.
+                <br/>
+                <br/>
+                The <i>variance</i> is the average number of squared differenced from the mean.
+                <br/>
+                <br/>
                 Enter numbers below, separated by spaces, to have these statistics generated.
               </p>
               <input id="formula-box" class="small-box" type="text" placeholder="1 2 3 ..."/>
@@ -54,18 +58,24 @@
             </div>
 
             <div class="one-third">
-              <img alt="img" src="/" />
+              <canvas id="dice-canvas" class="small-img canvas-container" width="274" height="197" ></canvas>
               <p class="smaller-text">
-                Consider a dice roll of a six-sided die. Statistically, the average roll would be 3.5.
-                The variance would be 35/12.
+                Consider a dice roll of a six-sided die. Roll the dice a couple times to create a <i>sample</i>.
                 <br/>
                 <a id="roll-dice" href="#">Click here to roll the die.</a>
                 <br/>
-                At first you'll notice the graph doesn't seem to follow any distribution. However, the more times you roll the dice, you see the graph look more and more like the normal distribution seen on the left.
+                <br/>
+                <span id="dice-stat"></span>
+                <br/>
+                <br/>
+                The CLT makes a conclusion on the distribution of the <i>mean</i> of all the samples, not a specific one.
+                The graph above shows the distribution of a single sample.
+                Let's say 100 of your friends do the same experiment.
+                The CLT tells us that if you took the means of the 100 different samples and plotted them, you'd get a graph that resembles the one on the left.
+                We'll illustrate this later in the tutorial.
               </p>
+              <input value="Next" type="button" class="simple-btn small" />
             </div>
-
-            <input value="Next" type="button" id="intro-btn" />
           </div>
         </section>
 
