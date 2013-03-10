@@ -2,17 +2,16 @@
 <html>
   <head>
     <title>Central Limit Theorem</title>
-    <link rel="stylesheet" type="text/css" href="reveal.css" />
-    <link rel="stylesheet" href="default.css" id="theme">
-    <!--<link rel="stylesheet" href="detail.css" id="theme">-->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/default.css" id="theme">
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/d3.v3.min.js"></script>
     <script type="text/javascript" src="js/rickshaw.min.js"></script>
     <script type="text/javascript" src="js/modernizr.min.js"></script>
-    <script type="text/javascript" src="Rickshaw.Graph.HoverDetail.js"></script>
-    <script type="text/javascript" src="index.js"></script>
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script type="text/javascript" src="js/Rickshaw.Graph.HoverDetail.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
   </head>
 
   <body>
@@ -38,14 +37,14 @@
             <h2>foundational knowledge</h2>
             <p class="small-text">Read below for a brief foundation on what you should know.</p>
             <div class="one-third">
-              <img class="small-img" alt="img" src="normaldist.gif" />
+              <img class="small-img" alt="img" src="img/normaldist.gif" />
               <p class="smaller-text">
                 This is the graph of a normal distribution. The Central Limit Theorem (CLT) tells us that with large enough samples, the distribution of the <i>mean</i> will conform to this distribution.
               </p>
             </div>
 
             <div class="one-third">
-              <img class="small-img" alt="img" src="formulas.jpg" />
+              <img class="small-img" alt="img" src="img/formulas.jpg" />
               <p class="smaller-text">
                 The <i>mean</i> of any sample is the sum of the data points, divided by the number of points.
                 <br/>
@@ -65,14 +64,12 @@
               <p class="smaller-text">
                 Consider a dice roll of a six-sided die. Roll the dice a couple times to create a <i>sample</i>.
                 <br/>
-                <a id="roll-dice" href="#">Click here to roll the die.</a>
+                <a id="roll-dice" href="javascript:void(0)">Click here to roll the die.</a>
                 <br/>
                 <br/>
-                <span id="dice-stat"></span>
+                <span id="dice-stat">&nbsp;</span>
                 <br/>
                 <br/>
-                The CLT makes a conclusion on the distribution of the <i>mean</i> of all the samples, not a specific one.
-                The graph above shows the distribution of a single sample.
                 Let's say 100 of your friends do the same experiment.
                 The CLT tells us that if you took the means of the 100 different samples and plotted them, you'd get a graph that resembles the one on the left.
                 We'll illustrate this later in the tutorial.
@@ -172,8 +169,17 @@
             <div id="value-plot-x"><span class='left'>0</span>Average Time Until Adoption<span class='right'>5</span></div>
           </div>
         </section>
+
+        <section>
+          <div class="page green">
+            <h3>Peace out!</h3>
+            <h4>Amir & Nick</h4>
+
+          </div>
+        </section>
       </div>
     </div>
-    <script type="text/javascript" src="reveal.js"></script>
+
+    <script type="text/javascript" src="js/reveal.js"></script>
   </body>
 </html>

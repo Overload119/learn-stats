@@ -26,6 +26,13 @@
   color: #222;
 }
 
+.one-third img {
+  margin: 15px 0px;
+  background: rgb(255, 255, 255);
+  border: 4px solid #eeeeee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
 .btn {
   box-shadow: 1px 1px 5px black;
   border: 0;
@@ -63,7 +70,7 @@
   display: inline-block;
 }
 .graph-pictures-xaxis img {
-  outline: 2px solid #000; 
+  outline: 2px solid #000;
   height: 55px;
 }
 
@@ -87,7 +94,7 @@
   margin-bottom:10px;
   float:left;
 }
- 
+
 .thumb-wrapper {
   display:block;
   width:100%;
@@ -98,21 +105,21 @@
   width:100%;
   height:100%;
   position:absolute;
-  display:block;          
+  display:block;
 }
 
 .thumb .thumb-detail {
   display:block;
   width:100%;
   height:100%;
-  position:absolute;          
+  position:absolute;
   background-color: #D1C181;
   outline 3px solid black;
 }
 
 .thumb.scroll {
   overflow: hidden;
-}   
+}
 
 .thumb.scroll .thumb-detail {
   bottom: -280px;
@@ -121,14 +128,14 @@
 .thumb.flip {
  perspective:800px;
 }
- 
+
 .thumb.flip .thumb-wrapper {
   transition: transform 1s;
-  transform-style: preserve-3d;           
+  transform-style: preserve-3d;
 }
 
 .thumb.flip .thumb-detail {
-  transform: rotateY(-180deg);                        
+  transform: rotateY(-180deg);
 }
 
 .thumb.flip .thumb-front, .thumb.flip .thumb-detail {
@@ -136,7 +143,7 @@
 }
 
 .thumb.flip .flipIt {
-  transform: rotateY(-180deg);            
+  transform: rotateY(-180deg);
 }
 
 #user-graph-next-btn {
@@ -219,7 +226,7 @@
   left:-160px;
   top: 320px;
   font-size: .5em;
-  -webkit-transform: rotate(-90deg); 
+  -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
 }
 #value-plot {

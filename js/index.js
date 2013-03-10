@@ -224,7 +224,7 @@ $(function() {
     var DICE_SWITCH_TIME_MAX = 1000;
 
     var updateDiceStat = function() {
-      var text = 'Your sample mean is ' + Math.round((sampleSum / sampleSize) * 100) / 100 + ' and your sample size is ' + sampleSize + '.';
+      var text = 'Sample mean is ' + Math.round((sampleSum / sampleSize) * 100) / 100 + ' & the sample size is ' + sampleSize + '.';
       $('#dice-stat').text(text);
     }
 
