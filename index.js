@@ -41,6 +41,14 @@ $(function() {
     transition: 'default' // default/cube/page/concave/zoom/linear/fade/none
   });
 
+  function getNumbers(l){
+    var array = [];
+    while(l--){
+      array.push( { x: l, y: Math.floor((Math.random()*5)+1)} );
+    }
+    return(array);
+  }
+
   $('#intro-btn').click(function() {
     var currentStep = $(this).data('step');
     if(currentStep === 1) {
@@ -54,9 +62,149 @@ $(function() {
       $(this).data('step', 1);
     }
   });
-  var data = [ { x: 0, y: 3 },{ x: 1, y: 9 },{ x: 2, y: 7 },{ x: 3, y: 1 },{ x: 4, y: 6 }];
 
-  // Setup the Dice canvas
+  // Nick's block starts
+  if ($('html').hasClass('csstransforms3d')) {
+    // if it's supported, remove the scroll effect add the cool card flipping instead
+    $('.thumb').removeClass('scroll').addClass('flip');
+
+    // add/remove flip class that make the transition effect
+    $('#user-graph-next-btn').click(
+      function () {
+        $('.thumb-wrapper').addClass('flipIt');
+      }
+    );
+
+  } else {
+    // CSS 3D is not supported, use the scroll up effect instead
+    $('#user-graph-next-btn').click( function () {
+      $('.thumb-detail').stop().animate({bottom:0}, 500);
+      $(this).val("Show me");
+      $(this).off('click').click( function() {
+        Reveal.next();
+      });
+    });
+  }
+  $("#what-happens-btn").click( function(){
+    var graphs = [];
+    $('.generated-graph').addClass('clear-graph').html('');
+    graphs = rollGraphs();
+    $(this).val('with a different 5?').off('click').click(function() {
+      graphs = rollGraphs();
+      $('#middle-bar-text').html("See how random the results are? ");
+      $(this).val('Try one last time').off('click').click(function(){
+        graphs = rollGraphs();
+        $('#middle-bar-text').html("What happens ");
+        $(this).val('if we average the ratings?').off('click').click(function(){
+          $(this).val('if a lot of people rate the cats?').off('click').click(function(){
+            Reveal.next();
+          });
+          $('.generated-graph').removeClass('clear-graph').html('');
+          var l = graphs.length;
+          for (var i = 1; i <= l; i++){
+            var data = graphs[i-1].series[0].data;
+            var sum = 0;
+            for (var j = 0; j < data.length; j++){
+              sum += data[j].y;
+            }
+            $("#generated-graph-" + i).html(sum/data.length);
+          }
+        });
+      });
+    });
+  });
+  function rollGraphs(){
+    var graphs = [];
+    graphs.push(generateSmallGraph(1));
+    graphs.push(generateSmallGraph(2));
+    graphs.push(generateSmallGraph(3));
+    graphs.push(generateSmallGraph(4));
+    return graphs;
+    /*
+    setTimeout(function() { generateSmallGraph(2); }, 200);
+    setTimeout(function() { generateSmallGraph(3); }, 400);
+    setTimeout(function() { generateSmallGraph(4); }, 600);
+    */
+  }
+  $("#five-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(5)}, 0) });
+  $("#ten-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(10)}, 0) });
+  $("#fifteen-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(15)}, 0) });
+  $("#thirty-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(30)}, 0) });
+  function generateNormalGraph(cats){
+    var averageOccurences = [];
+    for (var i = 0; i < $("#number-of-people").val(); i++){
+      var sum = 0;
+      for (var j = 0; j < cats; j++){
+        sum += Math.floor((Math.random()*5)+1);
+      }
+      sum /= cats;
+      sum = sum.toFixed(5);
+      if (averageOccurences[sum]){
+        averageOccurences[sum] += 1;
+      }
+      else{
+        averageOccurences[sum] = 1;
+      }
+    }
+    var newarray = []; //HACKISH AS FUCK I HATE THIS CODE
+    for(var key in averageOccurences){
+      newarray.push({'x': parseFloat(key), 'y': averageOccurences[key]});
+    }
+    var normalGraph = new Rickshaw.Graph( {
+      element: document.querySelector('#value-plot'),
+      renderer: 'bar',
+      series: [
+      {
+        color: "#000",
+        data: newarray.sort(function(a, b){
+          if (a.x < b.x) return -1;
+          if (a.x > b.x) return 1;
+          return 0;
+        })
+      }]
+    });
+    $("#loading-gif").hide();
+    normalGraph.render();
+  }
+
+  function swag (a) {
+    return a;
+  }
+
+
+  function generateSmallGraph(x) {
+    $('#generated-graph-' + x).html('');
+    var generated = new Rickshaw.Graph( {
+      element: document.querySelector("#generated-graph-" + x),
+      renderer: 'bar',
+      series: [
+      {
+        color: "#000",
+        data: getNumbers(50),
+        name: 'Time'
+      }
+      ]
+    });
+    generated.render();
+    return generated;
+  }
+  var generatedGraphLarge = new Rickshaw.Graph( {
+      element: document.querySelector('#generated-graph-large'),
+      width: 800,
+      height: 200,
+      renderer: 'bar',
+      series: [
+      {
+        color: '#4b7865',
+        data: getNumbers(50),
+        name: 'Time'
+      }
+      ]
+  });
+
+  generatedGraphLarge.render();
+  // Nick's block ends
+
   (function() {
     var diceCanvas = document.getElementById('dice-canvas');
     var g = diceCanvas.getContext('2d');
@@ -64,7 +212,6 @@ $(function() {
     var diceRolling = false;
     var diceAlpha = 0;
     var diceValue = 0;
-
     var sampleSum = 0;
     var sampleSize = 0;
 
@@ -222,13 +369,31 @@ $(function() {
   $('.panel-two').hide(); // Hide this at the start
   $('.rate-button').click(function() {
     var rating = $(this).val();
-    catGameArray.push(rating);
+    catGameArray.push({ x: catGameCounter - 1, y: parseFloat(rating) });
     catGameCounter++;
-    $('.cat-image-container img').attr('src', './cats/cat' + catGameCounter + '.jpg');
-    $('.cat-image-container img').hide().fadeIn();
     if(catGameArray.length === 5) {
       Reveal.next();
+      var userDataGraph = new Rickshaw.Graph( {
+        element: document.querySelector('#user-ratings-graph'),
+        renderer: 'bar',
+        series: [
+          {
+            color: "#9c646b",
+            data: catGameArray,
+            name: 'Time'
+          }
+        ]
+      } );
+      var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+        graph: userDataGraph,
+        xFormatter: function(x) { return null },
+        yFormatter: function(y) { return Math.floor(y) + " months" }
+      } );
+      userDataGraph.render();
+      return;
     }
+    $('.cat-image-container img').attr('src', './cats/cat' + catGameCounter + '.jpg');
+    $('.cat-image-container img').hide().fadeIn();
   });
 
 });

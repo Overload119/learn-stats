@@ -18,16 +18,250 @@
   background-color: #4B7865;
 }
 
-#intro-btn {
-  background-color: #9C646B;
+.small-text {
+  font-size: 0.6em !important;
+}
+
+.dark {
+  color: #222;
+}
+
+.btn {
+  box-shadow: 1px 1px 5px black;
   border: 0;
   border-radius: 4px;
   color: #fff;
-  font-size: 1.5em;
   padding: 12px;
+}
+
+#intro-btn {
+  background-color: #9C646B;
+  font-size: 1.5em;
 }
 
 #intro-btn:hover {
   background-color: #a66c74;
   cursor: pointer;
+}
+
+.graph-wrapper {
+  width: 550px;
+  margin: 0 auto;
+  text-align:center;
+}
+
+.graph-pictures-xaxis {
+  width: 100%;
+}
+.graph-pictures-xaxis div {
+  width: 104.5px;
+  margin-right: 5.5px;
+  margin-top: -7px;
+  float:left;
+  background-color: rgba(0,0,0,0.7);
+  padding-top:6px;
+  display: inline-block;
+}
+.graph-pictures-xaxis img {
+  outline: 2px solid #000; 
+  height: 55px;
+}
+
+.detail { /*styles the on-hover stuff*/
+  width: 104.5px;
+  text-align:center;
+  padding: 0;
+  font-size: 0.5em;
+  position: fixed;
+  top: 325px;
+  margin-left: 205px
+}
+
+/*card flip attempt:*/
+.thumb {
+  display:block;
+  width:880px;
+  height:100px;
+  position:relative;
+  margin-top: 10px;
+  margin-bottom:10px;
+  float:left;
+}
+ 
+.thumb-wrapper {
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+.thumb .thumb-front {
+  width:100%;
+  height:100%;
+  position:absolute;
+  display:block;          
+}
+
+.thumb .thumb-detail {
+  display:block;
+  width:100%;
+  height:100%;
+  position:absolute;          
+  background-color: #D1C181;
+  outline 3px solid black;
+}
+
+.thumb.scroll {
+  overflow: hidden;
+}   
+
+.thumb.scroll .thumb-detail {
+  bottom: -280px;
+}
+
+.thumb.flip {
+ perspective:800px;
+}
+ 
+.thumb.flip .thumb-wrapper {
+  transition: transform 1s;
+  transform-style: preserve-3d;           
+}
+
+.thumb.flip .thumb-detail {
+  transform: rotateY(-180deg);                        
+}
+
+.thumb.flip .thumb-front, .thumb.flip .thumb-detail {
+  backface-visibility: hidden;
+}
+
+.thumb.flip .flipIt {
+  transform: rotateY(-180deg);            
+}
+
+#user-graph-next-btn {
+  background-color: #4B7865;
+  font-size: .7em;
+}
+#user-graph-next-btn:hover {
+  background-color: #9CB06C;
+  cursor: pointer;
+}
+
+#generated-graph-large {
+  display: inline-block;
+  /*background:white;
+  border-left:6px solid white;
+  border-right: 6px solid white;
+  border-top: 3px solid white;*/
+}
+#generated-graph-large-yaxis {
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+}
+#generated-graph-label {
+  position: relative;
+  top: -15px;
+  font-size: .6em;
+}
+
+#middle-bar{
+  margin-top:30px;
+  font-size: .8em;
+  width: 100%
+}
+
+#what-happens-btn {
+  font-size: .8em;
+}
+
+#what-happens-btn:hover{
+  background-color: #9CB06C;
+  cursor: pointer;
+}
+
+#bottom-graphs-wrapper {
+  margin-top: 50px;
+}
+.generated-graph {
+  display: inline-block;
+  width: 210px;
+  height: 120px;
+  background: rgba(0,0,0,0.8);
+  line-height:120px;
+  font-size: 50px;
+  color: white;
+}
+
+.clear-graph {
+  background: none;
+}
+
+#final-graph-header {
+  height: 55px;
+  font-size: .7em;
+}
+
+#final-graph-header .btn {
+  margin: 4px;
+}
+
+#final-graph-header input {
+  font-size: .7em;
+  margin: 8px;
+}
+
+#value-plot-y {
+  width: 450px;
+  position: absolute;
+  left:-160px;
+  top: 320px;
+  font-size: .5em;
+  -webkit-transform: rotate(-90deg); 
+  -moz-transform: rotate(-90deg);
+}
+#value-plot {
+  background: white;
+  height: 450px;
+  width: 800px;
+  margin: 0 auto;
+  font-size: 400px;
+  line-height: 450px;
+  color:black;
+}
+#loading-gif {
+  position: absolute;
+  top: 300px;
+  left: 450px;
+  display:none;
+}
+#value-plot-x {
+  width:800px;
+  text-align:center;
+  margin: 0 auto;
+  font-size: .6em;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+#people-select-wrapper {
+  display: inline-block;
+}
+
+#people-select-wrapper select {
+  display: inline-block;
+  padding: 3px;
+  font-size: .8em;
+  width: 120px;
+  outline: none;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
 }
