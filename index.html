@@ -28,7 +28,7 @@
               </p>
             </div>
             <br />
-            <input value="I don't get it" type="button" id="intro-btn" class="btn"  />
+            <input value="I don't get it" type="button" id="intro-btn" class="simple-btn"  />
           </div>
         </section>
 
@@ -46,10 +46,10 @@
             <div class="one-third">
               <img class="small-img" alt="img" src="img/formulas.jpg" />
               <p class="smaller-text">
-                The <i>mean</i> of any sample is the sum of the data points, divided by the number of points.
+                The <i>mean</i> (top formula) of any sample is the sum of the data points, divided by the number of points.
                 <br/>
                 <br/>
-                The <i>variance</i> is the average number of squared differenced from the mean.
+                The <i>variance</i> (bottom formula) is the average number of squared differenced from the mean.
                 <br/>
                 <br/>
                 Enter numbers below, separated by spaces, to have these statistics generated.
@@ -67,28 +67,28 @@
                 <a id="roll-dice" href="javascript:void(0)">Click here to roll the die.</a>
                 <br/>
                 <br/>
-                <span id="dice-stat">&nbsp;</span>
+                <span id="dice-stat"><i>Roll the dice to get a sample mean.</i></span>
                 <br/>
                 <br/>
-                Let's say 100 of your friends do the same experiment.
-                The CLT tells us that if you took the means of the 100 different samples and plotted them, you'd get a graph that resembles the one on the left.
-                We'll illustrate this later in the tutorial.
+                The sample mean is YOUR specific result. If you had 100 of your friends do the same thing, their sample means will be different.
+                If you graphed the sample means of all the results, the distribution would appear normal, as the graph to the left.
               </p>
-              <input value="Next" type="button" class="simple-btn small" />
+              <input value="Next" type="button" class="simple-btn small next-btn" />
             </div>
           </div>
         </section>
 
         <section>
           <div class="reset page taupe">
-            <h2>Central Limit Theorem</h2>
+            <h2>Taking Samples</h2>
             <div class="two-panel">
               <div class="panel-one">
-                Before getting into further details, lets collect some data (a sample) that we'll use for the basis of this tutorial.
+                Before getting into further details, lets collect some data (a <i>sample</i>) that we'll use for the basis of this tutorial.
                 <br/>
-                We went to an animal shelter and recorded the number of months it took for a cat to get adopted. In this mini-game you will try to guess how many months it took for each cat to get adopted.
                 <br/>
-
+                In this sample, you will be guessing the number of months it takes for a cat to get adopted from a shelter, based on the appearance of the cat.
+                <br/>
+                <br/>
                 <input id="play-game" class="simple-btn" value="Play Game" type="button" />
               </div>
 
@@ -110,7 +110,7 @@
         </section>
         <section>
           <div class="page beige">
-            <h5>What do those ratings mean?</h5>
+            <h5>Sample Results</h5>
             <div class="graph-wrapper">
               <div id="user-ratings-graph"></div>
               <div class="graph-pictures-xaxis">
@@ -131,10 +131,19 @@
             <div class="thumb scroll">
               <div class="thumb-wrapper">
                 <div class="thumb-front">
-                  <p class='small-text dark'>These ratings follow a random distribution - every person who rates the cats will have different opinions, but some cats are more likely to get a higher rating than others. These factors mean the adoption times will not conform to a normal distribution</p>
+                  <p class='small-text dark'>
+                    Notice your guesses don't seem to follow any pattern (it doesn't follow a particular <i>distribution</i>).
+                    If several other people did the same experiment, their guesses would vary from yours, but would likely
+                    still not follow a particular distribution. However, the CLT tells us regardless of the probability distribution
+                    of the data set, the <i>mean</i> of all the different samples will approximately follow a normal distribution.
+                  </p>
                 </div>
                 <div class="thumb-detail">
-                  <p class='small-text dark'>If we have way more people rate way more cats, the average adoption times will conform to a normal distribution!</p>
+                  <p class='small-text'>
+                    With only 5 cats, we won't get a smooth looking distribution. In the following example, we'll increase the number of cats,
+                    so you can get a better idea.
+                    The key result: if we have way more people rate way more cats, the average adoption times will conform to a normal distribution.
+                  </p>
                 </div>
               </div>
             </div>
@@ -147,9 +156,12 @@
             <div>
               <div id="generated-graph-large-yaxis"></div>
               <div id="generated-graph-large"></div>
-              <div id="generated-graph-label">This dude rated 50 cats - check out the results. They are just as random as yours.</div>
+              <div id="generated-graph-label">
+                These are the estimated adoption times for 50 different cats. This is just one sample.
+                Notice, there still doesn't seem to be a particular probability distribution.
+              </div>
             </div>
-            <div id="middle-bar"><span id='middle-bar-text'>What Happens </span><input value="if five people rate 50 cats?" type="button" id="what-happens-btn" class="btn green" /> </div>
+            <div id="middle-bar"><span id='middle-bar-text'>What Happens </span><input value="if we get 5 samples?" type="button" id="what-happens-btn" class="btn green" /> </div>
             <div id = "bottom-graphs-wrapper">
              <div class="generated-graph" id="generated-graph-1">?</div>
              <div class="generated-graph" id="generated-graph-2">?</div>
@@ -161,7 +173,20 @@
         <section>
           <div class="page green">
             <div id="final-graph-header">
-              Plot the average for <div id="people-select-wrapper"><select id="number-of-people"><option value = 100>100</option><option value = 1000>1000</option><option value = 10000 selected="selected">10 000</option><option value = 100000>100 000</option></select></div> people rating: <input value="5 cats" type="button" class="btn pink" id="five-cats" /><input value="10 cats" type="button" class="btn pink" id="ten-cats" /><input value="15 cats" type="button" class="btn pink" id="fifteen-cats" /><input value="30 cats" type="button" class="btn pink" id="thirty-cats" />
+              Plot the means for
+              <div id="people-select-wrapper">
+                <select id="number-of-people">
+                  <option value=100>100</option>
+                  <option value = 1000>1000</option>
+                  <option value = 10000 selected="selected">10 000</option>
+                  <option value = 100000>100 000</option>
+                </select>
+              </div>
+              samples with
+              <input value="5 cats" type="button" class="btn pink" id="five-cats" />
+              <input value="10 cats" type="button" class="btn pink" id="ten-cats" />
+              <input value="15 cats" type="button" class="btn pink" id="fifteen-cats" />
+              <input value="30 cats" type="button" class="btn pink" id="thirty-cats" />
             </div>
             <div id="value-plot-y">Number of Times An Average Occurs</div>
             <div id="value-plot">?</div>
