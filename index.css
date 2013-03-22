@@ -48,6 +48,7 @@
   width: 550px;
   margin: 0 auto;
   text-align:center;
+  height: 250px;
 }
 
 .graph-pictures-xaxis {
@@ -219,6 +220,16 @@
   left:-160px;
   top: 320px;
   font-size: .5em;
+  -webkit-transform: rotate(-90deg); 
+  -moz-transform: rotate(-90deg);
+}
+#cat-plot-y {
+  width: 550px;
+  position: absolute;
+  left: -110px;
+  top: 250px;
+  font-size: .6em;
+  color: black;
   -webkit-transform: rotate(-90deg); 
   -moz-transform: rotate(-90deg);
 }

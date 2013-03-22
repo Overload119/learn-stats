@@ -384,11 +384,11 @@ $(function() {
           }
         ]
       } );
-      var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+      /*var hoverDetail = new Rickshaw.Graph.HoverDetail( {
         graph: userDataGraph,
         xFormatter: function(x) { return null },
         yFormatter: function(y) { return Math.floor(y) + " months" }
-      } );
+      } );*/
       userDataGraph.render();
       return;
     }
