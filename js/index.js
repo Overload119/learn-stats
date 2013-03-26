@@ -41,6 +41,7 @@ $(function() {
     transition: 'default' // default/cube/page/concave/zoom/linear/fade/none
   });
 
+  generateNormalGraph(50);
   function getNumbers(l){
     var array = [];
     while(l--){
@@ -111,16 +112,12 @@ $(function() {
     graphs.push(generateSmallGraph(3));
     graphs.push(generateSmallGraph(4));
     return graphs;
-    /*
-    setTimeout(function() { generateSmallGraph(2); }, 200);
-    setTimeout(function() { generateSmallGraph(3); }, 400);
-    setTimeout(function() { generateSmallGraph(4); }, 600);
-    */
   }
-  $("#five-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(5)}, 0) });
-  $("#ten-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(10)}, 0) });
-  $("#fifteen-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(15)}, 0) });
-  $("#thirty-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(30)}, 0) });
+  //$("#five-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(5)}, 0) });
+  //$("#ten-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(10)}, 0) });
+  //$("#fifteen-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(15)}, 0) });
+  //$("#thirty-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(30)}, 0) });
+  $("#number-of-people").change(function() { $("#value-plot").html(''); generateNormalGraph(50); });
   function generateNormalGraph(cats){
     var averageOccurences = [];
     for (var i = 0; i < $("#number-of-people").val(); i++){
@@ -137,7 +134,7 @@ $(function() {
         averageOccurences[sum] = 1;
       }
     }
-    var newarray = []; //HACKISH AS FUCK I HATE THIS CODE
+    var newarray = [];
     for(var key in averageOccurences){
       newarray.push({'x': parseFloat(key), 'y': averageOccurences[key]});
     }
@@ -375,11 +372,6 @@ $(function() {
           }
         ]
       } );
-      /*var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-        graph: userDataGraph,
-        xFormatter: function(x) { return null },
-        yFormatter: function(y) { return Math.floor(y) + " months" }
-      } );*/
       userDataGraph.render();
       return;
     }
