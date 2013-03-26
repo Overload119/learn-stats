@@ -66,27 +66,16 @@ $(function() {
   });
 
   // Nick's block starts
-  if ($('html').hasClass('csstransforms3d')) {
-    // if it's supported, remove the scroll effect add the cool card flipping instead
-    $('.thumb').removeClass('scroll').addClass('flip');
 
-    // add/remove flip class that make the transition effect
-    $('#user-graph-next-btn').click(
-      function () {
-        $('.thumb-wrapper').addClass('flipIt');
-      }
-    );
-
-  } else {
-    // CSS 3D is not supported, use the scroll up effect instead
-    $('#user-graph-next-btn').click( function () {
-      $('.thumb-detail').stop().animate({bottom:0}, 500);
-      $(this).val("Show me");
-      $(this).off('click').click( function() {
-        Reveal.next();
-      });
+  // CSS 3D is not supported, use the scroll up effect instead
+  $('#user-graph-next-btn').click( function () {
+    $('.thumb-detail').stop().animate({bottom:0}, 500);
+    $(this).val("Show me");
+    $(this).off('click').click( function() {
+      Reveal.next();
     });
-  }
+  });
+
   $("#what-happens-btn").click( function(){
     var graphs = [];
     $('.generated-graph').addClass('clear-graph').html('');
