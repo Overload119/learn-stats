@@ -235,8 +235,8 @@ body {
 }
 
 .reveal p {
-	margin-bottom: 10px;
 	line-height: 1.2em;
+	margin: 0 10px;
 }
 
 .reveal q,
@@ -1293,15 +1293,14 @@ body {
 }
 
 .reveal .cat-raters {
-	height: 50px;
-	line-height: 50px;
+	height: 62px;
+	line-height: 62px;
 }
 
 .rate-button {
-	padding: 8px;
-	border-radius: 4px;
+	padding: 2px 8px;
 	background-color: #9CB06C;
-	font-size: 1.1em;
+	font-size: 1.0em;
 	color: #fff;
 	border: 1px solid transparent;
 }
@@ -1309,7 +1308,7 @@ body {
 .rate-button:hover {
 	background-color: #ADC477;
 	cursor: pointer;
-	border: 1px solid transparent;
+	border: 1px solid #fff;
 }
 
 .reveal .two-panel {
@@ -1338,6 +1337,8 @@ body {
 	width: 400px;
   display: inline-block;
   vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .reveal .one-third {
@@ -1357,6 +1358,8 @@ body {
 
 .cat-image-container img {
 	height: 300px;
+	border: 4px solid #fff;
+	box-shadow: 1px 1px 4px 1px rgba(80, 80, 80, 0.45);
 }
 
 .simple-btn {

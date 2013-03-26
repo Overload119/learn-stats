@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Central Limit Theorem</title>
+    <link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/reveal.css" />
     <link rel="stylesheet" href="css/default.css" id="theme">
@@ -18,67 +19,88 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <div class="page light-green">
+          <div class="page color4">
             <h2>Central Limit Theorem</h2>
             <p class="small-text">Learn about the central limit theorem and it's implications in this interactive tutorial.</p>
             <hr/>
-            <div class="inset green">
+            <div class="inset color6">
               <p class="definition-text">
-                Given a sufficiently large sample size from a population with a finite level of variance, the mean of all samples from the same population will be approximately equal to the mean of the population.
+                In this 10-15 minute tutorial we'll go over the the Central Limit Theorem.
+                The first few slides are some foundational knowledge you need to know,
+                followed by interactive demos of the major conclusions of the central limit theorem.
+                <br/>
+                <br/>
+                You can also use the arrow keys to move forward or backwards.
+                It's highly recommended you do not skip slides.
               </p>
             </div>
             <br />
-            <input value="I don't get it" type="button" id="intro-btn" class="simple-btn"  />
+            <input value="Let's Begin" type="button" id="intro-btn" class="simple-btn color5"  />
           </div>
         </section>
 
         <section>
-          <div class="reset page light-green">
-            <h2>foundational knowledge</h2>
-            <div class="one-third">
-              <img class="small-img" alt="img" src="img/normaldist.gif" />
-              <p class="smaller-text">
-                This is the graph of a normal distribution. The Central Limit Theorem (CLT) tells us that with large enough samples, the distribution of the <i>mean</i> will conform to this distribution.
-              </p>
-            </div>
+          <div class="reset page color2">
+            <h2>FOUNDATIONAL KNOWLEDGE</h2>
+            <img class="small-img" alt="img" src="img/normaldist.gif" />
+            <p class="small-text">
+              This is the graph of a normal distribution (<i>sometimes called a bell curve</i>).
+              The Central Limit Theorem (CLT) tells us that with large enough samples <i>(n > 30)</i>,
+              the distribution of the <i>mean</i> (referred to as mu) will conform to this distribution.
 
-            <div class="one-third">
+              <br/><br/>
+
+              Let's say you took a sample of a population. The mean of the sample <i>(referred to as Xbar)</i> would fall somewhere
+              in the graph above. Notice however, the further you get from the center of the graph (<i>the population mean</i>) the less frequent it is.
+
+            </p>
+            <br/>
+            <input value="Next" type="button" class="simple-btn next-btn color7" />
+        </section>
+
+        <section>
+          <div class="reset page color2">
+            <h2>FOUNDATIONAL KNOWLEDGE</h2>
               <img class="small-img" alt="img" src="img/formulas.jpg" />
-              <p class="smaller-text">
-                The <i>mean</i> (top formula) of any sample is the sum of the data points, divided by the number of points.
+              <p class="small-text">
+                The <i>mean</i> (top formula - referred to as <i>Xbar</i>) of any sample is the sum of the data points, divided by the number of points.
                 <br/>
+
+                The <i>variance</i> (bottom formula - referred to as <i>S2</i>) is the average number of squared differences from the mean.
                 <br/>
-                The <i>variance</i> (bottom formula) is the average number of squared differences from the mean.
-                <br/>
-                <br/>
+
                 Enter numbers below, separated by spaces, to have these statistics generated.
               </p>
               <input id="formula-box" class="small-box" type="text" placeholder="1 2 3 ..."/>
               <br/>
-              <span id="formula-box-result"></span>
-            </div>
-
-            <div class="one-third">
-              <canvas id="dice-canvas" class="small-img canvas-container" width="274" height="197" ></canvas>
-              <p class="smaller-text">
-                Consider a dice roll of a six-sided die. Roll the dice a couple times to create a <i>sample</i>.
-                <br/>
-                <a id="roll-dice" href="javascript:void(0)">Click here to roll the die.</a>
-                <br/>
-                <br/>
-                <span id="dice-stat"><i>Roll the dice to get a sample mean.</i></span>
-                <br/>
-                <br/>
-                The sample mean is YOUR specific result. If you had 100 of your friends do the same thing, their sample means will be different.
-                If you graphed the sample means of all the results, the distribution would appear normal, as the graph to the left.
-              </p>
-              <input value="Next" type="button" class="simple-btn small next-btn" />
-            </div>
+              <span id="formula-box-result">Mean: 0 | Variance: 0</span>
+              <input value="Next" type="button" class="simple-btn color7 small next-btn" />
           </div>
         </section>
 
         <section>
-          <div class="reset page taupe">
+          <div class="reset page color2">
+            <h2>FOUNDATIONAL KNOWLEDGE</h2>
+            <canvas id="dice-canvas" class="small-img canvas-container" width="274" height="197" ></canvas>
+            <p class="small-text">
+              Consider a dice roll of a six-sided die. Roll the dice a couple times to create a <i>sample</i>.
+              <br/>
+              <a style="color: #798EC0; border-bottom: 1px solid #798EC0;" id="roll-dice" href="javascript:void(0)">Click here to roll the die.</a>
+              <br/>
+              <br/>
+              <span id="dice-stat"><i>Roll the dice to get a sample mean.</i></span>
+              <br/>
+              <br/>
+              The sample mean is YOUR specific result. If you had 100 of your friends do the same thing, their sample means will be different.
+              If you graphed the sample means of all the results, the distribution would appear normal, as the bell-shaped graph we saw earlier.
+            </p>
+            <br/>
+            <input value="Next" type="button" class="simple-btn color7 next-btn" />
+          </div>
+        </section>
+
+        <section>
+          <div class="reset page color4">
             <h2>Taking Samples</h2>
             <div class="two-panel">
               <div class="panel-one">
@@ -88,27 +110,27 @@
                 In this sample, you will be guessing the number of months it takes for a cat to get adopted from a shelter, based on the appearance of the cat.
                 <br/>
                 <br/>
-                <input id="play-game" class="simple-btn" value="Play Game" type="button" />
+                <input id="play-game" class="simple-btn color5" value="Play Game" type="button" />
               </div>
 
               <div class="panel-two">
                 <div class="cat-image-container">
                   <img alt="there should be a cat here" src="./cats/cat1.jpg"/>
                 </div>
-                <p class="small-text">How many months before this cat was adopted?</p>
+                <p class="smaller-text">How many months before this cat was adopted?</p>
                 <div class="cat-raters">
-                  <input id="rate-one" class="rate-button" type="button" value="1" />
-                  <input id="rate-two" class="rate-button" type="button" value="2" />
-                  <input id="rate-three" class="rate-button" type="button" value="3" />
-                  <input id="rate-four" class="rate-button" type="button" value="4" />
-                  <input id="rate-five" class="rate-button" type="button" value="5" />
+                  <input id="rate-one" class="rate-button color5" type="button" value="1" />
+                  <input id="rate-two" class="rate-button color5" type="button" value="2" />
+                  <input id="rate-three" class="rate-button color5" type="button" value="3" />
+                  <input id="rate-four" class="rate-button color5" type="button" value="4" />
+                  <input id="rate-five" class="rate-button color5" type="button" value="5" />
                 </div>
               </div>
             </div>
           </div>
         </section>
         <section>
-          <div class="page beige">
+          <div class="page color2">
             <h5>Sample Results</h5>
             <div class="graph-wrapper">
               <div id="cat-plot-y">Adoption Time</div>
@@ -134,12 +156,11 @@
                   <p class='small-text dark'>
                     Notice your guesses don't seem to follow any pattern (it doesn't follow a particular <i>distribution</i>).
                     If several other people did the same experiment, their guesses would vary from yours, but would likely
-                    still not follow a particular distribution. However, the CLT tells us regardless of the probability distribution
-                    of the data set, the <i>mean</i> of all the different samples will approximately follow a normal distribution.
+                    still not follow a particular distribution.
                   </p>
                 </div>
-                <div class="thumb-detail">
-                  <p class='small-text'>
+                <div class="thumb-detail color6">
+                  <p class='small-text dark'>
                     Above is the graph of your adoption time guesses for each cat.
                     Notice how this graph doesn't seem to follow any kind of distribution? The results look completely random!
                     <br/>
@@ -150,21 +171,21 @@
               </div>
             </div>
             <br>
-            <input value="So what?" type="button" id="user-graph-next-btn" class="btn" />
+            <input value="So What?" type="button" id="user-graph-next-btn" class="simple-btn color4" />
           </div>
         </section>
         <section>
-          <div class="page taupe">
+          <div class="page color4">
             <div>
               <div id="generated-graph-large-yaxis"></div>
               <div id="generated-graph-large"></div>
               <p class="small-text">
                 These are the estimated adoption times for 50 different cats. We treat the graph above as one <i>sample</i>.
-                Notice, there still doesn't seem to be a particular probability distribution. The way the cats are rated is essentially <i>random</i>
+                Notice, there still doesn't seem to be a particular probability distribution. The way the cats are rated is essentially <i>random</i>.
                 Most experiments will use multiple samples to improve accuracy. Now let's see...
               </p>
             </div>
-            <div id="middle-bar"><span id='middle-bar-text'>What happens </span><input value="if we take 5 samples?" type="button" id="what-happens-btn" class="btn green" /> </div>
+            <div id="middle-bar"><span id='middle-bar-text'>What happens </span><input value="if we take 5 samples?" type="button" id="what-happens-btn" class="simple-btn color5" /> </div>
             <div id = "bottom-graphs-wrapper">
              <div class="generated-graph" id="generated-graph-1">?</div>
              <div class="generated-graph" id="generated-graph-2">?</div>
@@ -174,30 +195,39 @@
           </div>
         </section>
         <section>
-          <div class="page green">
+          <div class="page color2">
+            <p class="small-text">Below is graph of the means of very large samples. Notice as you increase the size of the sample, the means of the experiments conform to a normal distribution.</p>
             <div id="final-graph-header">
-              Plot the means for
+              Showing plots of the average adoption time for
               <div id="people-select-wrapper">
                 <select id="number-of-people">
-                  <option value=100>100</option>
-                  <option value = 1000>1000</option>
-                  <option value = 10000 selected="selected">10 000</option>
-                  <option value = 100000>100 000</option>
+                  <option value="100">100</option>
+                  <option value="1000">1000</option>
+                  <option value="10000" selected="selected">10 000</option>
+                  <option value="100000">100 000</option>
                 </select>
               </div>
-              people rating cats
+              samples.
             </div>
             <div id="value-plot-y">Number of Times An Average Occurs</div>
             <div id="value-plot"></div>
-            <div id="value-plot-x"><span class='left'>0</span>Average Time Until Adoption<span class='right'>5</span></div>
+            <div id="value-plot-x"><span class='left'>0</span>Average Time Until Adoption (months)<span class='right'>5</span></div>
+            <input type="button" value="Next" class="next-btn simple-btn color4 small" />
+            <br />
           </div>
         </section>
 
         <section>
-          <div class="page green">
-            <h3>Peace out!</h3>
-            <h4>Amir & Nick</h4>
-
+          <div class="page color4">
+            <h3>Thank You</h3>
+            <p class="small-text">Thanks for going through this interactive tutorial. If you still need understanding, check out some of the external links below. This tutorial was created by <a href="http://www.amirsharif.com">Amir</a> and <a href="http://www.nick.mostowich.com">Nick</a>.  </p>
+            <br/>
+            <h4>Want to learn more?</h4>
+            <a href="http://www.mathsisfun.com/data/standard-normal-distribution.html" target="_blank">Normal Distribution - MathIsFun</a>
+            <br/>
+            <a href="https://www.khanacademy.org/math/probability/statistics-inferential/normal_distribution/v/introduction-to-the-normal-distribution" target="_blank">Normal Distribution - Khan Academy</a>
+            <br/>
+            <a href="http://www.youtube.com/watch?v=xgQhefFOXrM" target="_blank">Explained Simply - YouTube</a>
           </div>
         </section>
       </div>

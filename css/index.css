@@ -18,10 +18,6 @@
   background-color: #4B7865;
 }
 
-.small-text {
-  font-size: 0.6em !important;
-}
-
 .dark {
   color: #222;
 }
@@ -237,7 +233,7 @@
   top: 250px;
   font-size: .6em;
   color: black;
-  -webkit-transform: rotate(-90deg); 
+  -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
 }
 #value-plot {
