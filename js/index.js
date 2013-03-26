@@ -83,25 +83,20 @@ $(function() {
     graphs = rollGraphs();
     $(this).val('with a different 5?').off('click').click(function() {
       graphs = rollGraphs();
-      $('#middle-bar-text').html("See how random the results are? ");
-      $(this).val('Try one last time').off('click').click(function(){
-        graphs = rollGraphs();
-        $('#middle-bar-text').html("What happens ");
-        $(this).val('if we find the mean for each sample?').off('click').click(function(){
-          $(this).val('if we plot the averages').off('click').click(function(){
-            Reveal.next();
-          });
-          $('.generated-graph').removeClass('clear-graph').html('');
-          var l = graphs.length;
-          for (var i = 1; i <= l; i++){
-            var data = graphs[i-1].series[0].data;
-            var sum = 0;
-            for (var j = 0; j < data.length; j++){
-              sum += data[j].y;
-            }
-            $("#generated-graph-" + i).html(sum/data.length);
-          }
+      $(this).val('if we find the mean for each sample?').off('click').click(function(){
+        $(this).val('if we plot the means?').off('click').click(function(){
+          Reveal.next();
         });
+        $('.generated-graph').removeClass('clear-graph').html('');
+        var l = graphs.length;
+        for (var i = 1; i <= l; i++){
+          var data = graphs[i-1].series[0].data;
+          var sum = 0;
+          for (var j = 0; j < data.length; j++){
+            sum += data[j].y;
+          }
+          $("#generated-graph-" + i).html(sum/data.length);
+        }
       });
     });
   });
