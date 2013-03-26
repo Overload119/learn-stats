@@ -35,7 +35,6 @@
         <section>
           <div class="reset page light-green">
             <h2>foundational knowledge</h2>
-            <p class="small-text">Read below for a brief foundation on what you should know.</p>
             <div class="one-third">
               <img class="small-img" alt="img" src="img/normaldist.gif" />
               <p class="smaller-text">
@@ -49,7 +48,7 @@
                 The <i>mean</i> (top formula) of any sample is the sum of the data points, divided by the number of points.
                 <br/>
                 <br/>
-                The <i>variance</i> (bottom formula) is the average number of squared differenced from the mean.
+                The <i>variance</i> (bottom formula) is the average number of squared differences from the mean.
                 <br/>
                 <br/>
                 Enter numbers below, separated by spaces, to have these statistics generated.
@@ -141,9 +140,11 @@
                 </div>
                 <div class="thumb-detail">
                   <p class='small-text'>
-                    With only 5 cats, we won't get a smooth looking distribution. In the following example, we'll increase the number of cats,
-                    so you can get a better idea.
-                    The key result: if we have way more people rate way more cats, the average adoption times will conform to a normal distribution.
+                    Above is the graph of your adoption time guesses for each cat.
+                    Notice how this graph doesn't seem to follow any kind of distribution? The results look completely random!
+                    <br/>
+                    Imagine you just played the game but rated 50 cats instead of just 5. If more cats were rated, the graph would look just as, if not more, random.
+                    We'll see this in the next slide.
                   </p>
                 </div>
               </div>
@@ -157,12 +158,13 @@
             <div>
               <div id="generated-graph-large-yaxis"></div>
               <div id="generated-graph-large"></div>
-              <div id="generated-graph-label">
-                These are the estimated adoption times for 50 different cats. This is just one sample.
-                Notice, there still doesn't seem to be a particular probability distribution.
-              </div>
+              <p class="small-text">
+                These are the estimated adoption times for 50 different cats. We treat the graph above as one <i>sample</i>.
+                Notice, there still doesn't seem to be a particular probability distribution. The way the cats are rated is essentially <i>random</i>
+                Most experiments will use multiple samples to improve accuracy. Now let's see...
+              </p>
             </div>
-            <div id="middle-bar"><span id='middle-bar-text'>What Happens </span><input value="if we get 5 samples?" type="button" id="what-happens-btn" class="btn green" /> </div>
+            <div id="middle-bar"><span id='middle-bar-text'>What happens </span><input value="if we take 5 samples?" type="button" id="what-happens-btn" class="btn green" /> </div>
             <div id = "bottom-graphs-wrapper">
              <div class="generated-graph" id="generated-graph-1">?</div>
              <div class="generated-graph" id="generated-graph-2">?</div>

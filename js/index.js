@@ -351,7 +351,8 @@ $(function() {
   var catGameCounter = 1;
   var catGameArray = [];
   $('#play-game').click(function() {
-    $('.panel-two').fadeIn();
+    $('.panel-one').addClass('slide');
+    $('.panel-two').show().width('0px').animate({ width: '400px' }, 500);
     $(this).hide();
   });
   $('.panel-two').hide(); // Hide this at the start
