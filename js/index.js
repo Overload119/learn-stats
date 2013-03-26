@@ -49,6 +49,8 @@ $(function() {
     return(array);
   }
 
+  $('.next-btn').click(function () { Reveal.next() });
+
   $('#intro-btn').click(function() {
     var currentStep = $(this).data('step');
     if(currentStep === 1) {
@@ -95,8 +97,8 @@ $(function() {
       $(this).val('Try one last time').off('click').click(function(){
         graphs = rollGraphs();
         $('#middle-bar-text').html("What happens ");
-        $(this).val('if we average the ratings?').off('click').click(function(){
-          $(this).val('if a lot of people rate the cats?').off('click').click(function(){
+        $(this).val('if we find the mean for each sample?').off('click').click(function(){
+          $(this).val('if we plot the averages').off('click').click(function(){
             Reveal.next();
           });
           $('.generated-graph').removeClass('clear-graph').html('');
@@ -224,7 +226,7 @@ $(function() {
     var DICE_SWITCH_TIME_MAX = 1000;
 
     var updateDiceStat = function() {
-      var text = 'Your sample mean is ' + Math.round((sampleSum / sampleSize) * 100) / 100 + ' and your sample size is ' + sampleSize + '.';
+      var text = 'Sample mean is ' + Math.round((sampleSum / sampleSize) * 100) / 100 + ' & the sample size is ' + sampleSize + '.';
       $('#dice-stat').text(text);
     }
 
