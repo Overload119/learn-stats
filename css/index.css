@@ -1,21 +1,24 @@
-.pink {
-  background-color: #9C646B;
+body {
+  font-family: 'Gafata', sans-serif;
+}
+.color1 {
+  background-color: #ccc;
 }
 
-.beige {
-  background-color: #D1C181;
+.color2 {
+  background-color: #009999;
 }
 
-.taupe {
-  background-color: #C79C81;
+.color3 {
+  background-color: #FFAA00;
 }
 
-.light-green {
-  background-color: #9CB06C;
+.color4 {
+  background-color: #FF7400;
 }
 
-.green {
-  background-color: #4B7865;
+.color5 {
+  background-color: #006363;
 }
 
 .dark {
@@ -38,13 +41,7 @@
 }
 
 #intro-btn {
-  background-color: #9C646B;
   font-size: 1.5em;
-}
-
-#intro-btn:hover {
-  background-color: #a66c74;
-  cursor: pointer;
 }
 
 .graph-wrapper {
@@ -110,7 +107,6 @@
   width:100%;
   height:100%;
   position:absolute;
-  background-color: #D1C181;
   outline 3px solid black;
 }
 
@@ -144,20 +140,14 @@
 }
 
 #user-graph-next-btn {
-  background-color: #4B7865;
   font-size: .7em;
 }
 #user-graph-next-btn:hover {
-  background-color: #9CB06C;
   cursor: pointer;
 }
 
 #generated-graph-large {
   display: inline-block;
-  /*background:white;
-  border-left:6px solid white;
-  border-right: 6px solid white;
-  border-top: 3px solid white;*/
 }
 #generated-graph-large-yaxis {
   position:absolute;
@@ -182,7 +172,6 @@
 }
 
 #what-happens-btn:hover{
-  background-color: #9CB06C;
   cursor: pointer;
 }
 

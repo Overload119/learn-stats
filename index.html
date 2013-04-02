@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Central Limit Theorem</title>
+    <link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/reveal.css" />
     <link rel="stylesheet" href="css/default.css" id="theme">
@@ -18,22 +19,22 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <div class="page light-green">
+          <div class="page color4">
             <h2>Central Limit Theorem</h2>
             <p class="small-text">Learn about the central limit theorem and it's implications in this interactive tutorial.</p>
             <hr/>
-            <div class="inset green">
+            <div class="inset color5">
               <p class="definition-text">
                 Given a sufficiently large sample size from a population with a finite level of variance, the mean of all samples from the same population will be approximately equal to the mean of the population.
               </p>
             </div>
             <br />
-            <input value="I don't get it" type="button" id="intro-btn" class="simple-btn"  />
+            <input value="I don't get it" type="button" id="intro-btn" class="simple-btn color5"  />
           </div>
         </section>
 
         <section>
-          <div class="reset page light-green">
+          <div class="reset page color2">
             <h2>foundational knowledge</h2>
             <div class="one-third">
               <img class="small-img" alt="img" src="img/normaldist.gif" />
@@ -72,13 +73,13 @@
                 The sample mean is YOUR specific result. If you had 100 of your friends do the same thing, their sample means will be different.
                 If you graphed the sample means of all the results, the distribution would appear normal, as the graph to the left.
               </p>
-              <input value="Next" type="button" class="simple-btn small next-btn" />
+              <input value="Next" type="button" class="simple-btn color4 small next-btn" />
             </div>
           </div>
         </section>
 
         <section>
-          <div class="reset page taupe">
+          <div class="reset page color4">
             <h2>Taking Samples</h2>
             <div class="two-panel">
               <div class="panel-one">
@@ -88,7 +89,7 @@
                 In this sample, you will be guessing the number of months it takes for a cat to get adopted from a shelter, based on the appearance of the cat.
                 <br/>
                 <br/>
-                <input id="play-game" class="simple-btn" value="Play Game" type="button" />
+                <input id="play-game" class="simple-btn color5" value="Play Game" type="button" />
               </div>
 
               <div class="panel-two">
@@ -97,18 +98,18 @@
                 </div>
                 <p class="smaller-text">How many months before this cat was adopted?</p>
                 <div class="cat-raters">
-                  <input id="rate-one" class="rate-button" type="button" value="1" />
-                  <input id="rate-two" class="rate-button" type="button" value="2" />
-                  <input id="rate-three" class="rate-button" type="button" value="3" />
-                  <input id="rate-four" class="rate-button" type="button" value="4" />
-                  <input id="rate-five" class="rate-button" type="button" value="5" />
+                  <input id="rate-one" class="rate-button color5" type="button" value="1" />
+                  <input id="rate-two" class="rate-button color5" type="button" value="2" />
+                  <input id="rate-three" class="rate-button color5" type="button" value="3" />
+                  <input id="rate-four" class="rate-button color5" type="button" value="4" />
+                  <input id="rate-five" class="rate-button color5" type="button" value="5" />
                 </div>
               </div>
             </div>
           </div>
         </section>
         <section>
-          <div class="page beige">
+          <div class="page color2">
             <h5>Sample Results</h5>
             <div class="graph-wrapper">
               <div id="cat-plot-y">Adoption Time</div>
@@ -137,7 +138,7 @@
                     still not follow a particular distribution.
                   </p>
                 </div>
-                <div class="thumb-detail">
+                <div class="thumb-detail color1">
                   <p class='small-text dark'>
                     Above is the graph of your adoption time guesses for each cat.
                     Notice how this graph doesn't seem to follow any kind of distribution? The results look completely random!
@@ -149,11 +150,11 @@
               </div>
             </div>
             <br>
-            <input value="So what?" type="button" id="user-graph-next-btn" class="simple-btn" />
+            <input value="So what?" type="button" id="user-graph-next-btn" class="simple-btn color4" />
           </div>
         </section>
         <section>
-          <div class="page taupe">
+          <div class="page color4">
             <div>
               <div id="generated-graph-large-yaxis"></div>
               <div id="generated-graph-large"></div>
@@ -163,7 +164,7 @@
                 Most experiments will use multiple samples to improve accuracy. Now let's see...
               </p>
             </div>
-            <div id="middle-bar"><span id='middle-bar-text'>What happens </span><input value="if we take 5 samples?" type="button" id="what-happens-btn" class="simple-btn green" /> </div>
+            <div id="middle-bar"><span id='middle-bar-text'>What happens </span><input value="if we take 5 samples?" type="button" id="what-happens-btn" class="simple-btn color5" /> </div>
             <div id = "bottom-graphs-wrapper">
              <div class="generated-graph" id="generated-graph-1">?</div>
              <div class="generated-graph" id="generated-graph-2">?</div>
@@ -173,7 +174,7 @@
           </div>
         </section>
         <section>
-          <div class="page green">
+          <div class="page color2">
             <p class="small-text">Below is graph of the means of very large samples. Notice as you increase the size of the sample, the means of the experiments conform to a normal distribution.</p>
             <div id="final-graph-header">
               Showing plots of the average adoption time for
@@ -190,13 +191,13 @@
             <div id="value-plot-y">Number of Times An Average Occurs</div>
             <div id="value-plot"></div>
             <div id="value-plot-x"><span class='left'>0</span>Average Time Until Adoption (months)<span class='right'>5</span></div>
-            <input type="button" value="Next" class="next-btn simple-btn small" />
+            <input type="button" value="Next" class="next-btn simple-btn color4 small" /> 
             <br />
           </div>
         </section>
 
         <section>
-          <div class="page green">
+          <div class="page color4">
             <h3>Thank You</h3>
             <p class="small-text">Thanks for going through this interactive tutorial. If you still need understanding, check out some of the external links below. This tutorial was created by <a href="http://www.amirsharif.com">Amir</a> and <a href="http://www.nick.mostowich.com">Nick</a>.  </p>
             <br/>

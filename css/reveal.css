@@ -1266,7 +1266,7 @@ body {
 
 .reveal .page {
  padding: 40px;
- box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.8);
+ /*box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.8);*/
 }
 
 .reveal .definition-header {
@@ -1299,16 +1299,16 @@ body {
 
 .rate-button {
 	padding: 2px 8px;
-	background-color: #9CB06C;
 	font-size: 1.0em;
 	color: #fff;
 	border: 1px solid transparent;
 }
 
 .rate-button:hover {
-	background-color: #ADC477;
 	cursor: pointer;
-	border: 1px solid #fff;
+  background-color: #fff;
+  color:#000;
+	border: 1px solid #000;
 }
 
 .reveal .two-panel {
@@ -1365,7 +1365,6 @@ body {
 .simple-btn {
 	padding: 12px;
 	color: #fff;
-	background-color: #9C646B;
 	border: 1px solid transparent;
 	font-size: 1.4em;
 }
@@ -1377,8 +1376,9 @@ body {
 }
 
 .simple-btn:hover {
-	background-color: #a66c74;
-	border: 1px solid #fff;
+	background-color: #fff;
+	border: 1px solid #333;
+  color:#000;
 	cursor: pointer;
 }
 
