@@ -1391,7 +1391,10 @@ body {
 }
 
 .reveal #formula-box-result {
-	font-size: 14px;
+	background-color: rgba(255,255,255,0.2);
+	border-radius: 8px;
+	padding: 0 8px;
+	margin-top: 4px;
 }
 
 .reveal .canvas-container {

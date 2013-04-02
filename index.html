@@ -25,56 +25,77 @@
             <hr/>
             <div class="inset color5">
               <p class="definition-text">
-                Given a sufficiently large sample size from a population with a finite level of variance, the mean of all samples from the same population will be approximately equal to the mean of the population.
+                In this 10-15 minute tutorial we'll go over the the Central Limit Theorem.
+                The first few slides are some foundational knowledge you need to know,
+                followed by interactive demos of the major conclusions of the central limit theorem.
+                <br/>
+                <br/>
+                You can also use the arrow keys to move forward or backwards.
+                It's highly recommended you do not skip slides.
               </p>
             </div>
             <br />
-            <input value="I don't get it" type="button" id="intro-btn" class="simple-btn color5"  />
+            <input value="Let's Begin" type="button" id="intro-btn" class="simple-btn color5"  />
           </div>
         </section>
 
         <section>
           <div class="reset page color2">
-            <h2>foundational knowledge</h2>
-            <div class="one-third">
-              <img class="small-img" alt="img" src="img/normaldist.gif" />
-              <p class="smaller-text">
-                This is the graph of a normal distribution. The Central Limit Theorem (CLT) tells us that with large enough samples, the distribution of the <i>mean</i> will conform to this distribution.
-              </p>
-            </div>
+            <h2>FOUNDATIONAL KNOWLEDGE</h2>
+            <img class="small-img" alt="img" src="img/normaldist.gif" />
+            <p class="small-text">
+              This is the graph of a normal distribution (<i>sometimes called a bell curve</i>).
+              The Central Limit Theorem (CLT) tells us that with large enough samples <i>(n > 30)</i>,
+              the distribution of the <i>mean</i> (referred to as mu) will conform to this distribution.
 
-            <div class="one-third">
+              <br/><br/>
+
+              Let's say you took a sample of a population. The mean of the sample <i>(referred to as Xbar)</i> would fall somewhere
+              in the graph above. Notice however, the further you get from the center of the graph (<i>the 3population mean</i>) the less frequent it is.
+
+            </p>
+            <br/>
+            <input value="Next" type="button" class="simple-btn next-btn" />
+        </section>
+
+        <section>
+          <div class="reset page color2">
+            <h2>FOUNDATIONAL KNOWLEDGE</h2>
               <img class="small-img" alt="img" src="img/formulas.jpg" />
-              <p class="smaller-text">
-                The <i>mean</i> (top formula) of any sample is the sum of the data points, divided by the number of points.
+              <p class="small-text">
+                The <i>mean</i> (top formula - referred to as <i>Xbar</i>) of any sample is the sum of the data points, divided by the number of points.
                 <br/>
+
+                The <i>variance</i> (bottom formula - referred to as <i>S2</i>) is the average number of squared differences from the mean.
                 <br/>
-                The <i>variance</i> (bottom formula) is the average number of squared differences from the mean.
-                <br/>
-                <br/>
+
                 Enter numbers below, separated by spaces, to have these statistics generated.
               </p>
               <input id="formula-box" class="small-box" type="text" placeholder="1 2 3 ..."/>
               <br/>
-              <span id="formula-box-result"></span>
-            </div>
-
-            <div class="one-third">
-              <canvas id="dice-canvas" class="small-img canvas-container" width="274" height="197" ></canvas>
-              <p class="smaller-text">
-                Consider a dice roll of a six-sided die. Roll the dice a couple times to create a <i>sample</i>.
-                <br/>
-                <a id="roll-dice" href="javascript:void(0)">Click here to roll the die.</a>
-                <br/>
-                <br/>
-                <span id="dice-stat"><i>Roll the dice to get a sample mean.</i></span>
-                <br/>
-                <br/>
-                The sample mean is YOUR specific result. If you had 100 of your friends do the same thing, their sample means will be different.
-                If you graphed the sample means of all the results, the distribution would appear normal, as the graph to the left.
-              </p>
+              <span id="formula-box-result">Mean: 0 | Variance: 0</span>
               <input value="Next" type="button" class="simple-btn color4 small next-btn" />
-            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="reset page color2">
+
+            <canvas id="dice-canvas" class="small-img canvas-container" width="274" height="197" ></canvas>
+            <p class="small-text">
+              Consider a dice roll of a six-sided die. Roll the dice a couple times to create a <i>sample</i>.
+              <br/>
+              <a id="roll-dice" href="javascript:void(0)">Click here to roll the die.</a>
+              <br/>
+              <br/>
+              <span id="dice-stat"><i>Roll the dice to get a sample mean.</i></span>
+              <br/>
+              <br/>
+              The sample mean is YOUR specific result. If you had 100 of your friends do the same thing, their sample means will be different.
+              If you graphed the sample means of all the results, the distribution would appear normal, as the bell-shaped graph we saw earlier.
+            </p>
+            <br/>
+            <input value="Next" type="button" class="simple-btn color4 next-btn" />
           </div>
         </section>
 
@@ -191,7 +212,7 @@
             <div id="value-plot-y">Number of Times An Average Occurs</div>
             <div id="value-plot"></div>
             <div id="value-plot-x"><span class='left'>0</span>Average Time Until Adoption (months)<span class='right'>5</span></div>
-            <input type="button" value="Next" class="next-btn simple-btn color4 small" /> 
+            <input type="button" value="Next" class="next-btn simple-btn color4 small" />
             <br />
           </div>
         </section>
