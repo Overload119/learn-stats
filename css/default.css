@@ -65,19 +65,22 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #ccc;
+  color: #DFCF83;
+  border-bottom: 1px solid #DFCF83;
+  padding: 0 4px;
   text-decoration: none;
-  -webkit-transition: color .15s ease;
-  -moz-transition: color .15s ease;
-  -ms-transition: color .15s ease;
-  -o-transition: color .15s ease;
-  transition: color .15s ease;
+  -webkit-transition: all .15s ease;
+  -moz-transition: all .15s ease;
+  -ms-transition: all .15s ease;
+  -o-transition: all .15s ease;
+  transition: all .15s ease;
 }
 
 .reveal a:not(.image):hover {
-  color: #666;
+  color: #fff;
+  background-color: #ccc;
   text-shadow: none;
-  border: none;
+  border-bottom: 1px solid #fff;
 }
 
 .reveal .roll span:after {

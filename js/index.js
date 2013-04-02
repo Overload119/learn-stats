@@ -61,7 +61,7 @@ $(function() {
   // CSS 3D is not supported, use the scroll up effect instead
   $('#user-graph-next-btn').click( function () {
     $('.thumb-detail').stop().animate({bottom:0}, 500);
-    $(this).val("Show me");
+    $(this).val("Show Me");
     $(this).off('click').click( function() {
       Reveal.next();
     });
@@ -165,7 +165,7 @@ $(function() {
       renderer: 'bar',
       series: [
       {
-        color: '#006363',
+        color: '#798EC0',
         data: getNumbers(50),
         name: 'Time'
       }
@@ -349,7 +349,7 @@ $(function() {
         renderer: 'bar',
         series: [
           {
-            color: "#ff7400",
+            color: "#798EC0",
             data: catGameArray,
             name: 'Time'
           }
