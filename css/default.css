@@ -27,7 +27,7 @@ body {
 }
 
 .reveal {
-  font-family: "Lato", Times, "Times New Roman", serif;
+  font-family: 'Gafata', sans-serif;
   font-size: 36px;
   font-weight: 200;
   letter-spacing: -0.02em;
@@ -51,7 +51,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #eeeeee;
-  font-family: "League Gothic", Impact, sans-serif;
+  font-family: 'Gafata', sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
   text-transform: uppercase;
