@@ -108,10 +108,6 @@ $(function() {
     graphs.push(generateSmallGraph(4));
     return graphs;
   }
-  //$("#five-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(5)}, 0) });
-  //$("#ten-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(10)}, 0) });
-  //$("#fifteen-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(15)}, 0) });
-  //$("#thirty-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(30)}, 0) });
   $("#number-of-people").change(function() { $("#value-plot").html(''); generateNormalGraph(50); });
   function generateNormalGraph(cats){
     var averageOccurences = [];
@@ -178,7 +174,7 @@ $(function() {
       renderer: 'bar',
       series: [
       {
-        color: '#4b7865',
+        color: '#006363',
         data: getNumbers(50),
         name: 'Time'
       }
@@ -362,7 +358,7 @@ $(function() {
         renderer: 'bar',
         series: [
           {
-            color: "#9c646b",
+            color: "#ff7400",
             data: catGameArray,
             name: 'Time'
           }

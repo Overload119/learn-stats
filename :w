@@ -29,7 +29,7 @@
               </p>
             </div>
             <br />
-            <input value="I don't get it" type="button" id="intro-btn" class="simple-btn color5"  />
+            <input value="I don't get it" type="button" id="intro-btn" class="simple-btn"  />
           </div>
         </section>
 
@@ -73,7 +73,7 @@
                 The sample mean is YOUR specific result. If you had 100 of your friends do the same thing, their sample means will be different.
                 If you graphed the sample means of all the results, the distribution would appear normal, as the graph to the left.
               </p>
-              <input value="Next" type="button" class="simple-btn color4 small next-btn" />
+              <input value="Next" type="button" class="simple-btn small next-btn" />
             </div>
           </div>
         </section>
@@ -89,7 +89,7 @@
                 In this sample, you will be guessing the number of months it takes for a cat to get adopted from a shelter, based on the appearance of the cat.
                 <br/>
                 <br/>
-                <input id="play-game" class="simple-btn color5" value="Play Game" type="button" />
+                <input id="play-game" class="simple-btn" value="Play Game" type="button" />
               </div>
 
               <div class="panel-two">
@@ -98,11 +98,11 @@
                 </div>
                 <p class="smaller-text">How many months before this cat was adopted?</p>
                 <div class="cat-raters">
-                  <input id="rate-one" class="rate-button color5" type="button" value="1" />
-                  <input id="rate-two" class="rate-button color5" type="button" value="2" />
-                  <input id="rate-three" class="rate-button color5" type="button" value="3" />
-                  <input id="rate-four" class="rate-button color5" type="button" value="4" />
-                  <input id="rate-five" class="rate-button color5" type="button" value="5" />
+                  <input id="rate-one" class="rate-button" type="button" value="1" />
+                  <input id="rate-two" class="rate-button" type="button" value="2" />
+                  <input id="rate-three" class="rate-button" type="button" value="3" />
+                  <input id="rate-four" class="rate-button" type="button" value="4" />
+                  <input id="rate-five" class="rate-button" type="button" value="5" />
                 </div>
               </div>
             </div>
@@ -138,7 +138,7 @@
                     still not follow a particular distribution.
                   </p>
                 </div>
-                <div class="thumb-detail color1">
+                <div class="thumb-detail">
                   <p class='small-text dark'>
                     Above is the graph of your adoption time guesses for each cat.
                     Notice how this graph doesn't seem to follow any kind of distribution? The results look completely random!
@@ -150,7 +150,7 @@
               </div>
             </div>
             <br>
-            <input value="So what?" type="button" id="user-graph-next-btn" class="simple-btn color4" />
+            <input value="So what?" type="button" id="user-graph-next-btn" class="simple-btn" />
           </div>
         </section>
         <section>
@@ -174,7 +174,7 @@
           </div>
         </section>
         <section>
-          <div class="page color2">
+          <div class="page color5">
             <p class="small-text">Below is graph of the means of very large samples. Notice as you increase the size of the sample, the means of the experiments conform to a normal distribution.</p>
             <div id="final-graph-header">
               Showing plots of the average adoption time for
@@ -191,7 +191,7 @@
             <div id="value-plot-y">Number of Times An Average Occurs</div>
             <div id="value-plot"></div>
             <div id="value-plot-x"><span class='left'>0</span>Average Time Until Adoption (months)<span class='right'>5</span></div>
-            <input type="button" value="Next" class="next-btn simple-btn color4 small" /> 
+            <input type="button" value="Next" class="next-btn simple-btn small" />
             <br />
           </div>
         </section>
