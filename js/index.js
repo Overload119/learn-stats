@@ -53,17 +53,7 @@ $(function() {
   $('.next-btn').click(function () { Reveal.next() });
 
   $('#intro-btn').click(function() {
-    var currentStep = $(this).data('step');
-    if(currentStep === 1) {
-      Reveal.next();
-    } else {
-      $('.definition-text').fadeOut(250, function() {
-        $('.definition-text').text('If you\'re given a sample with a non-normal distribution, its sampling distribution of means will be approximately normal for large sample sizes (over 30).');
-        $('.definition-text').fadeIn(250);
-      });
-      $(this).val('I still don\'t get it');
-      $(this).data('step', 1);
-    }
+    Reveal.next();
   });
 
   // Nick's block starts
@@ -71,7 +61,7 @@ $(function() {
   // CSS 3D is not supported, use the scroll up effect instead
   $('#user-graph-next-btn').click( function () {
     $('.thumb-detail').stop().animate({bottom:0}, 500);
-    $(this).val("Show me");
+    $(this).val("Show Me");
     $(this).off('click').click( function() {
       Reveal.next();
     });
@@ -108,10 +98,7 @@ $(function() {
     graphs.push(generateSmallGraph(4));
     return graphs;
   }
-  //$("#five-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(5)}, 0) });
-  //$("#ten-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(10)}, 0) });
-  //$("#fifteen-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(15)}, 0) });
-  //$("#thirty-cats").click( function() { $("#value-plot").html(''); $('#loading-gif').show(); setTimeout(function(){ generateNormalGraph(30)}, 0) });
+
   $("#number-of-people").change(function() { $("#value-plot").html(''); generateNormalGraph(50); });
   function generateNormalGraph(cats){
     var averageOccurences = [];
@@ -178,7 +165,7 @@ $(function() {
       renderer: 'bar',
       series: [
       {
-        color: '#4b7865',
+        color: '#798EC0',
         data: getNumbers(50),
         name: 'Time'
       }
@@ -355,14 +342,14 @@ $(function() {
     var rating = $(this).val();
     catGameArray.push({ x: catGameCounter - 1, y: parseFloat(rating) });
     catGameCounter++;
-    if(catGameArray.length === 5) {
+    if(catGameArray.length >= 5) {
       Reveal.next();
       var userDataGraph = new Rickshaw.Graph( {
         element: document.querySelector('#user-ratings-graph'),
         renderer: 'bar',
         series: [
           {
-            color: "#9c646b",
+            color: "#798EC0",
             data: catGameArray,
             name: 'Time'
           }

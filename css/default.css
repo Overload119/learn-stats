@@ -16,18 +16,17 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #1c1e20;
-  background: -moz-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background: #ccc;
+/*  background: -moz-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #555a5f), color-stop(100%, #1c1e20));
   background: -webkit-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
   background: -o-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
   background: -ms-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
-  background: radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
-  background-color: #2b2b2b;
+  background: radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);*/
 }
 
 .reveal {
-  font-family: "Lato", Times, "Times New Roman", serif;
+  font-family: 'Gafata', sans-serif;
   font-size: 36px;
   font-weight: 200;
   letter-spacing: -0.02em;
@@ -51,7 +50,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #eeeeee;
-  font-family: "League Gothic", Impact, sans-serif;
+  font-family: 'Gafata', sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -66,19 +65,22 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #13daec;
+  color: #DFCF83;
+  border-bottom: 1px solid #DFCF83;
+  padding: 0 4px;
   text-decoration: none;
-  -webkit-transition: color .15s ease;
-  -moz-transition: color .15s ease;
-  -ms-transition: color .15s ease;
-  -o-transition: color .15s ease;
-  transition: color .15s ease;
+  -webkit-transition: all .15s ease;
+  -moz-transition: all .15s ease;
+  -ms-transition: all .15s ease;
+  -o-transition: all .15s ease;
+  transition: all .15s ease;
 }
 
 .reveal a:not(.image):hover {
-  color: #71e9f4;
+  color: #fff;
+  background-color: #ccc;
   text-shadow: none;
-  border: none;
+  border-bottom: 1px solid #fff;
 }
 
 .reveal .roll span:after {
